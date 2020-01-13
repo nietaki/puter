@@ -68,6 +68,7 @@
       - termtosvg
 
 - name: Install Neovim from Snap
+  become: true
   snap:
     name: nvim
     classic: yes
