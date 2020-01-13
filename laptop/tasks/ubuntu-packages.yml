@@ -57,6 +57,7 @@
       - w3m
       - wget
       - xsel
+      - xz-utils
       - youtube-dl
       - software-properties-common
 

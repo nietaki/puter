@@ -2,3 +2,20 @@
   become: true
   snap:
     name: spotify
+
+- name: Install DataGrip from Snap
+  become: true
+  snap:
+    name: datagrip
+    classic: yes
+
+- name: Install Slack from Snap
+  become: true
+  snap:
+    name: slack
+    classic: yes
+
+- name: Install Google Chrome from .deb
+  become: true
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
