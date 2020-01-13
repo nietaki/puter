@@ -57,11 +57,18 @@
       - wget
       - xsel
       - youtube-dl
+      - software-properties-common
+      - python-neovim
+      - python3-neovim
 
 - name: Install pip3 packages
   pip:
-    name: "{{ item }}"
     executable: pip3
-  with_items:
-    - termtosvg
-    # - black
+    name:
+      - termtosvg
+
+- name: Install Neovim from Snap
+  snap:
+    name: neovim
+    classic: yes
+    channel: candidate
