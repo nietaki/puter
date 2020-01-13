@@ -44,6 +44,7 @@
       - mpv
       - ncdu
       - psmisc
+      - python-pip
       - python3-pip
       - rsync
       - speedtest-cli
@@ -58,6 +59,12 @@
       - xsel
       - youtube-dl
       - software-properties-common
+
+- name: Remove neovim packages not managed by pip
+  become: true
+  apt:
+    state: absent
+    name:
       - python-neovim
       - python3-neovim
 
@@ -67,9 +74,9 @@
     name:
       - termtosvg
 
-- name: Install Neovim from Snap
-  become: true
-  snap:
-    name: nvim
-    classic: yes
-    channel: candidate
+# - name: Install Neovim from Snap
+#   become: true
+#   snap:
+#     name: nvim
+#     classic: yes
+#     channel: candidate
