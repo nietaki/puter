@@ -19,13 +19,13 @@
     # - include: tasks/heroku.yml
     - include: tasks/ssh.yml
     # - include: tasks/fpp.yml
-    # - include: tasks/asdf.yml
+    - include: tasks/asdf.yml
     # - include: tasks/rustup.yml
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
     # - include: tasks/fish.yml
     - include: tasks/neovim.yml
-    # - include: tasks/src.yml
+    - include: tasks/src.yml
     # - include: tasks/stack.yml
     # - include: tasks/docker.yml
     # - include: tasks/fzf.yml
