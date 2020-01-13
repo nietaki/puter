@@ -9,22 +9,29 @@ unset ANSIBLE_VAULT_PASSWORD_FILE
 
 if [ -z "$1" ]; then
   echo "You must specify a playbook to run"
-  echo "   puter debian-chroot.yml"
+  echo "   puter ubuntu.yml"
   exit 1
 fi
 
 set -u # Error on unset vars
 
-command -v ansible-playbook >/dev/null 2>&1 || {
-  echo Ansible is not installed.
-  echo Running 'sudo apt-get install ansible'
-  sudo apt-get install ansible
+command -v python3  >/dev/null 2>&1 || {
+  sudo apt -y install python3
 }
 
-command -v aptitude  >/dev/null 2>&1 || {
-  echo Aptitude is not installed.
-  echo Running 'sudo apt-get install aptitude'
-  sudo apt-get install aptitude
+command -v ansible-playbook >/dev/null 2>&1 || {
+  echo Ansible is not installed.
+  echo Installing from PPA
+  sudo apt -y update
+  sudo apt -y install software-properties-common
+  sudo apt-add-repository --yes --update ppa:ansible/ansible
+  sudo apt -y install ansible
 }
+
+# command -v aptitude  >/dev/null 2>&1 || {
+#   echo Aptitude is not installed.
+#   echo Running 'sudo apt-get install aptitude'
+#   sudo apt-get install aptitude
+# }
 
 ansible-playbook $1 -i hosts.ini --ask-become-pass --diff -v

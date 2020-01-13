@@ -1,0 +1,66 @@
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 1800
+  become: true
+
+- name: Upgrade all apt packages
+  apt:
+    upgrade: safe
+  become: true
+
+- name: Install Ubuntu CLI packages
+  become: true
+  apt:
+    state: latest
+    name:
+      - atool
+      - autoconf
+      - autojump
+      - build-essential
+      - clang-format
+      - cloc
+      - cmake
+      - cowsay
+      - curl
+      - dnsutils
+      - flac
+      - flactag
+      - git
+      - htop
+      - inotify-tools
+      - jq
+      - libevent-dev
+      - libncurses5-dev
+      - libreadline-dev
+      - libssl-dev
+      - libtool-bin
+      - libvips-tools
+      - lltag
+      - llvm
+      - man-db
+      - mediainfo
+      - moreutils
+      - mpv
+      - ncdu
+      - psmisc
+      - python3-pip
+      - rsync
+      - speedtest-cli
+      - spell
+      - sqlite3
+      - tmux
+      - toilet
+      - tree
+      - w3m
+      - wget
+      - xsel
+      - youtube-dl
+
+- name: Install pip3 packages
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items:
+    - termtosvg
+    # - black
