@@ -58,16 +58,16 @@
       - wget
       - xsel
       - xz-utils
-      - youtube-dl
       - software-properties-common
 
-- name: Remove neovim packages not managed by pip
+- name: Remove some packages that should be installed not via apt
   become: true
   apt:
     state: absent
     name:
       - python-neovim
       - python3-neovim
+      - youtube-dl
 
 - name: Install pip3 packages
   pip:
@@ -75,9 +75,8 @@
     name:
       - termtosvg
 
-# - name: Install Neovim from Snap
-#   become: true
-#   snap:
-#     name: nvim
-#     classic: yes
-#     channel: candidate
+- name: Install cli snap packages
+  become: true
+  snap:
+    name: 
+      - youtube-dl
