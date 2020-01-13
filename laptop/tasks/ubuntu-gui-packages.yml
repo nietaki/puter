@@ -1,8 +1,3 @@
-- name: Install Spotify from Snap
-  become: true
-  snap:
-    name: spotify
-
 - name: Install DataGrip from Snap
   become: true
   snap:
@@ -19,3 +14,14 @@
   become: true
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+- name: Install other desktop apps from Snap
+  become: true
+  snap:
+    name: 
+      - vlc
+      - spotify
+      - libreoffice
+      - opera
+      # maybe docker?
+      # TODO standard notes
