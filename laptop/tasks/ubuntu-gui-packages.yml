@@ -1,0 +1,4 @@
+- name: Install Spotify from Snap
+  become: true
+  snap:
+    name: spotify

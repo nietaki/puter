@@ -1,4 +1,10 @@
-- command: ssh-keygen -t rsa -b 4096 -N '"{ssh_passphrase}"' -f ~/.ssh/id_rsa -C "{{ email }}"
+- name: Generate ssh keys
+  command: ssh-keygen -t rsa -b 4096 -N '"{ssh_passphrase}"' -f ~/.ssh/id_rsa -C "{{ email }}"
   args:
     creates: ~/.ssh/id_rsa
   no_log: true
+
+- name: Display the public ssh key
+  debug: var=item
+  with_file:
+    ~/.ssh/id_rsa
