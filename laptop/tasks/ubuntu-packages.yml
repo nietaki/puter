@@ -69,6 +69,6 @@
 
 - name: Install Neovim from Snap
   snap:
-    name: neovim
+    name: nvim
     classic: yes
     channel: candidate
