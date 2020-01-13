@@ -13,7 +13,7 @@
     # - include: tasks/awscli.yml
     # - include: tasks/gcp-sdk.yml
     # - include: tasks/heroku.yml
-    # - include: tasks/ssh.yml
+    - include: tasks/ssh.yml
     # - include: tasks/fpp.yml
     # - include: tasks/asdf.yml
     # - include: tasks/rustup.yml
