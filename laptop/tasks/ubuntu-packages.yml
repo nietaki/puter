@@ -4,6 +4,7 @@
     cache_valid_time: 1800
   become: true
 
+# TODO check if this is safe on KDE Neon or if we should use pkcon 
 - name: Upgrade all apt packages
   apt:
     upgrade: safe

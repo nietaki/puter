@@ -1,6 +1,4 @@
-<a align="left" href="https://xkcd.com/1678/" target="_blank"><img align="left" src="https://imgs.xkcd.com/comics/recent_searches.png" alt="Relevant XKCD"></a>
-My 'puter.
-==========
+# My 'puter.
 
 Setting up a computer is annoying, so let's automate it.
 
@@ -13,3 +11,12 @@ puter ubuntu.yml
 ```
 
 Tada!
+
+## What doesn't it set up?
+
+It doesn't add the ssh key to the ssh-agent. You need to run:
+
+```sh
+ssh-add
+```
+and enter the ssh passphrase to add it to ssh-agent
