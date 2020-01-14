@@ -5,61 +5,90 @@
   become: true
 
 # TODO check if this is safe on KDE Neon or if we should use pkcon 
-- name: Upgrade all apt packages
-  apt:
-    upgrade: safe
-  become: true
+# - name: Upgrade all apt packages
+#   apt:
+#     upgrade: safe
+#   become: true
 
 - name: Install Ubuntu CLI packages
   become: true
   apt:
     state: latest
     name:
+      - ack
+      - aspell
       - atool
       - autoconf
       - autojump
       - build-essential
+      - bzip2
       - clang-format
       - cloc
       - cmake
+      - cmatrix
       - cowsay
       - curl
+      - direnv
       - dnsutils
+      - emacs
       - flac
       - flactag
+      - fop
+      - fortune
+      - gcc
       - git
+      - git-extras
       - htop
+      - httpie
       - inotify-tools
       - jq
       - libevent-dev
+      - libffi-dev
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
       - libncurses5-dev
+      - libpng-dev 
       - libreadline-dev
+      - libssh-dev
       - libssl-dev
       - libtool-bin
       - libvips-tools
+      - libwxgtk3.0-dev
+      - libwxgtk3.0-dev
       - lltag
       - llvm
+      - m4
+      - make
       - man-db
+      - mc
       - mediainfo
       - moreutils
       - mpv
       - ncdu
+      - partitionmanager
       - psmisc
       - python-pip
       - python3-pip
       - rsync
+      - silversearcher-ag
+      - software-properties-common
       - speedtest-cli
       - spell
       - sqlite3
+      - tldr
       - tmux
       - toilet
       - tree
+      - unixodbc-dev
+      - unzip
       - vim-nox
       - w3m
       - wget
       - xsel
+      - xsltproc
       - xz-utils
-      - software-properties-common
+      - zeal
+      - zsh
 
 - name: Remove some packages that should be installed not via apt
   become: true
@@ -81,3 +110,4 @@
   snap:
     name: 
       - youtube-dl
+      - shellcheck
