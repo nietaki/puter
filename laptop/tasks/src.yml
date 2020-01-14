@@ -5,6 +5,7 @@
     update: false
   with_items:
 
-    # Gleam
     - url: git@github.com:gleam-lang/gleam.git
       path: gleam
+    - url: git@github.com:nietaki/puter.git
+      path: puter
