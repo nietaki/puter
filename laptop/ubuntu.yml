@@ -29,6 +29,7 @@
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
     # - include: tasks/fish.yml
+    - include: tasks/zsh.yml
     # - include: tasks/stack.yml
     # - include: tasks/docker.yml
     # - include: tasks/fzf.yml
