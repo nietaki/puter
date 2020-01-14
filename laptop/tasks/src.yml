@@ -1,10 +1,10 @@
 - name: Fetch git repos
   git:
     repo: "{{ item['url'] }}"
-    dest: "~/src/{{ item['path'] }}"
+    dest: "~/repos/{{ item['path'] }}"
     update: false
   with_items:
 
     # Gleam
     - url: git@github.com:gleam-lang/gleam.git
-      path: gleam/gleam
+      path: gleam
