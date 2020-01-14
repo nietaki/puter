@@ -1,0 +1,11 @@
+- name: Install some asdf configurations
+  command: ~/.asdf/bin/asdf install {{ item['plugin'] }} {{ item['version'] }}
+  with_items:
+    - plugin: elixir
+      version: 1.7.4-otp-21
+    - plugin: erlang
+      version: "21.2"
+    - plugin: rebar
+      version: 3.12.0
+    - plugin: nodejs
+      version: 13.6.0

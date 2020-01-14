@@ -33,6 +33,11 @@
   args:
     creates: ~/.asdf/plugins/erlang
 
+- name: asdf Rebar
+  command: ~/.asdf/bin/asdf plugin-add rebar https://github.com/Stratus3D/asdf-rebar.git
+  args:
+    creates: ~/.asdf/plugins/rebar
+
 - name: asdf NodeJS (and import NodeJS GPG keys)
   shell: |
     ~/.asdf/bin/asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git

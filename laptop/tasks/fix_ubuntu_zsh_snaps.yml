@@ -1,0 +1,8 @@
+# https://www.reddit.com/r/kde/comments/9pjos2/snaps_in_application_launcher/
+# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1640514
+
+- name: make snaps visible in zsh
+  lineinfile: 
+    dest: /etc/zsh/zprofile
+    line: "emulate sh -c 'source /etc/profile'"
+  become: true

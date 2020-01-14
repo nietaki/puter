@@ -25,11 +25,13 @@
     # - include: tasks/heroku.yml
     # - include: tasks/fpp.yml
     - include: tasks/asdf.yml
+    - include: tasks/asdf_versions.yml
     # - include: tasks/rustup.yml
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
     # - include: tasks/fish.yml
     - include: tasks/zsh.yml
+    - include: tasks/fix_ubuntu_zsh_snaps.yml
     # - include: tasks/stack.yml
     # - include: tasks/docker.yml
     # - include: tasks/fzf.yml
