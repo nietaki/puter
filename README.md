@@ -6,7 +6,6 @@ Setting up a computer is annoying, so let's automate it.
 ## Usage
 
 ```sh
-cd laptop
 puter ubuntu.yml
 ```
 
@@ -24,6 +23,11 @@ and enter the ssh passphrase to add it to ssh-agent
 
 You'll need to add the public key (displayed during putering)
 to your GitHub account in the browser.
+
+### Changing the shell
+
+It does change the shell (to zsh) but you need to reboot the
+machine afterwards anyways.
 
 ### NeoVim finishing touches
 
