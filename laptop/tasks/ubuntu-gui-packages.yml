@@ -1,3 +1,16 @@
+- name: Add Deluge PPA repository
+  apt_repository:
+    repo: ppa:deluge-team/stable
+    update_cache: yes
+  become: true
+
+- name: Install deluge gui
+  become: true
+  apt:
+    state: latest
+    name:
+      - deluge # it's deluged deluge-web and deluge-console for headless
+
 - name: Install DataGrip from Snap
   become: true
   snap:
@@ -8,6 +21,12 @@
   become: true
   snap:
     name: slack
+    classic: yes
+
+- name: Install VS Code from Snap
+  become: true
+  snap:
+    name: code
     classic: yes
 
 - name: Install Google Chrome from .deb
@@ -23,5 +42,5 @@
       - spotify
       - libreoffice
       - opera
+      - standard-notes
       # maybe docker?
-      # TODO standard notes

@@ -1,3 +1,9 @@
+- name: Add Deluge PPA repository
+  apt_repository:
+    repo: ppa:deluge-team/stable
+    update_cache: yes
+  become: true
+
 - name: Update apt cache
   apt:
     update_cache: true
@@ -20,6 +26,7 @@
       - atool
       - autoconf
       - autojump
+      - bless
       - build-essential
       - bzip2
       - clang-format
@@ -28,6 +35,9 @@
       - cmatrix
       - cowsay
       - curl
+      - deluged
+      - deluge-web
+      - deluge-console
       - direnv
       - dnsutils
       - emacs
@@ -35,6 +45,7 @@
       - flactag
       - fop
       - fortune
+      - fuse
       - gcc
       - git
       - git-extras
