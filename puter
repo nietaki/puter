@@ -9,7 +9,7 @@ unset ANSIBLE_VAULT_PASSWORD_FILE
 
 if [ -z "$1" ]; then
   echo "You must specify a playbook to run"
-  echo "   puter ubuntu.yml"
+  echo "   puter ubuntu_desktop.yml"
   exit 1
 fi
 

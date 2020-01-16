@@ -6,7 +6,7 @@ Setting up a computer is annoying, so let's automate it.
 ## Usage
 
 ```sh
-puter ubuntu.yml
+puter ubuntu_desktop.yml
 ```
 
 Tada!
