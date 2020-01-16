@@ -1,0 +1,28 @@
+---
+# Run this playbook on the local machine.
+- hosts: 127.0.0.1
+  connection: local
+
+  # Debian stuff, shouldn't apply
+  vars:
+    debian_release: stretch
+
+  vars_prompt: 
+    name: ssh_passphrase
+    prompt: "Enter ssh passphrase. It will get used if an ssh key needs to be generated"
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - include: tasks/homebrew-packages.yml
+    # - include: tasks/neovim.yml
+    # - include: tasks/ssh.yml
+    # - include: tasks/dotfiles.yml
+    # - include: tasks/asdf.yml
+    # - include: tasks/asdf_versions.yml
+    # - include: tasks/zsh.yml
+    # - include: tasks/src.yml
+
+  # handlers:
+    # - include: handlers/all.yml

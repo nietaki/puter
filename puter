@@ -11,13 +11,13 @@ unamestr=$(uname)
 
 if [[ "$unamestr" == 'Linux' ]]; then
   echo "## Ubuntu"
-  command -v python3  >/dev/null 2>&1 || {
+  command -v python3 >/dev/null 2>&1 || {
     sudo apt -y install python3
   }
 
   command -v ansible-playbook >/dev/null 2>&1 || {
     echo Ansible is not installed.
-    echo Installing from PPA
+    echo Installing from PPA...
     sudo apt -y update
     sudo apt -y install software-properties-common
     sudo apt-add-repository --yes --update ppa:ansible/ansible
@@ -31,12 +31,31 @@ if [[ "$unamestr" == 'Linux' ]]; then
   # }
 elif [[ "$unamestr" == "Darwin" ]]; then
   echo "## OSX"
-  xcode-select -p 1>/dev/null;
-  rc=$?
-  if [[ $rc != 0 ]]; then
-    echo "XCode CLI tools not yet installed, installing"
+  xcode-select -p 1>/dev/null 2>&1 || {
+    echo "XCode CLI tools not yet installed"
+    echo "installing"
     sudo xcode-select --install
-  fi
+  }
+
+  command -v brew >/dev/null 2>&1 || {
+    echo Homebrew is not installed.
+    echo running the installer...
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  }
+
+  # TODO maybe move brew doctor AFTER the playbook has been run and the dotfiles have been installed
+  # brew doctor
+  # NOTE Homebrew Cask is now installed as a part of Homebrew install
+
+  command -v ansible-playbook >/dev/null 2>&1 || {
+    echo Ansible is not installed.
+    echo Installing from Homebrew...
+    brew install ansible
+  }
+  
+  # just in case, I had this problem on an older computer
+  brew link --overwrite ansible
+  # todo echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 else
   echo "Unrecognised OS (puter supports only OSX and Ubuntu)"
   exit 1

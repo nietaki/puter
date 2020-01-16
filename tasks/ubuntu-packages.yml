@@ -40,7 +40,7 @@
       - deluge-console
       - direnv
       - dnsutils
-      - emacs
+      # - emacs
       - flac
       - flactag
       - fop
@@ -110,11 +110,11 @@
       - python3-neovim
       - youtube-dl
 
-- name: Install pip3 packages
-  pip:
-    executable: pip3
-    name:
-      - termtosvg
+# - name: Install pip3 packages
+#   pip:
+#     executable: pip3
+#     name:
+#       - termtosvg
 
 - name: Install cli snap packages
   become: true
