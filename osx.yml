@@ -16,7 +16,7 @@
 
   tasks:
     # - include: tasks/homebrew-packages.yml
-    # - include: tasks/neovim.yml
+    - include: tasks/neovim-osx.yml
     - include: tasks/ssh.yml
     # - include: tasks/dotfiles.yml
     - include: tasks/asdf.yml

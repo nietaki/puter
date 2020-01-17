@@ -1,0 +1,32 @@
+- name: Create Neovim dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0700
+  with_items:
+    - ~/.config/nvim/autoload
+    - ~/bin/nvim-{{ neovim_version }}
+
+- name: Install neovim from Homebrew
+  homebrew:
+    upgrade_all: no
+    state: linked
+    name: 
+      - neovim
+
+- name: Install Plug vim package manager
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.config/nvim/autoload/plug.vim
+    mode: 0600
+
+# TODO
+# - name: Install python3 neovim lib
+#   pip:
+#     name: neovim
+#     executable: pip3
+
+# - name: Install python2 neovim lib
+#   pip:
+#     name: neovim
+#     executable: pip

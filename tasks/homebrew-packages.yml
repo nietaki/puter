@@ -57,45 +57,45 @@
       - shellcheck
       - bash
 
-# - name: Install brew cask apps
-#   homebrew_cask:
-#     state: present
-#     accept_external_apps: yes
-#     sudo_password: {{ ansible_become_pass }}
-#     upgrade: no
-#     name:
-#       # - dropbox
-#       # - skim
-#       # - skype
-#       - adobe-acrobat-reader
-#       - adoptopenjdk
-#       - bettertouchtool
-#       - brave-browser
-#       - dash
-#       - datagrip
-#       - deluge
-#       - firefox
-#       - flux
-#       - google-chrome
-#       - hex-fiend
-#       - iterm2
-#       - java11
-#       - karabiner-elements
-#       - kindle
-#       - libreoffice
-#       - ngrok
-#       - postman
-#       - slack
-#       - sourcetree
-#       - spotify
-#       - steam
-#       - sublime-text
-#       - suspicious-package
-#       - telegram
-#       - texmaker
-#       - texshop
-#       - textmate
-#       - unetbootin
-#       - visual-studio-code
-#       - vlc
-#       - whatsapp
+- name: Install brew cask apps
+  homebrew_cask:
+    state: present
+    accept_external_apps: yes
+    sudo_password: {{ ansible_become_pass }}
+    upgrade: no
+    name:
+      # - dropbox
+      # - skim
+      # - skype
+      - adobe-acrobat-reader
+      - adoptopenjdk
+      - bettertouchtool
+      - brave-browser
+      - dash
+      - datagrip
+      - deluge
+      - firefox
+      - flux
+      - google-chrome
+      - hex-fiend
+      - iterm2
+      - java11
+      - karabiner-elements
+      - kindle
+      - libreoffice
+      - ngrok
+      - postman
+      - slack
+      - sourcetree
+      - spotify
+      - steam
+      - sublime-text
+      - suspicious-package
+      - telegram
+      - texmaker
+      - texshop
+      - textmate
+      - unetbootin
+      - visual-studio-code
+      - vlc
+      - whatsapp
