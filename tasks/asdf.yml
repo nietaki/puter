@@ -9,25 +9,6 @@
   args:
     creates: ~/.asdf/plugins/elixir
 
-- name: Install Erlang compilation packages
-  apt:
-    name:
-      - autoconf 
-      - build-essential 
-      - erlang-wx
-      - fop
-      - libgl1-mesa-dev
-      - libglu1-mesa-dev
-      - libncurses5-dev
-      - libpng-dev
-      - libssh-dev
-      - libwxgtk3.0-dev
-      - m4
-      - unixodbc-dev
-      - xsltproc
-    state: latest
-  become: true
-
 - name: asdf Erlang
   command: ~/.asdf/bin/asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
   args:

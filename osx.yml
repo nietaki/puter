@@ -15,14 +15,14 @@
     - vars.yml
 
   tasks:
-    - include: tasks/homebrew-packages.yml
+    # - include: tasks/homebrew-packages.yml
     # - include: tasks/neovim.yml
-    # - include: tasks/ssh.yml
+    - include: tasks/ssh.yml
     # - include: tasks/dotfiles.yml
-    # - include: tasks/asdf.yml
-    # - include: tasks/asdf_versions.yml
-    # - include: tasks/zsh.yml
-    # - include: tasks/src.yml
+    - include: tasks/asdf.yml
+    - include: tasks/asdf_versions.yml
+    - include: tasks/zsh.yml
+    - include: tasks/src.yml
 
   # handlers:
     # - include: handlers/all.yml

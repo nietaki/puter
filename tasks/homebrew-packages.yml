@@ -1,7 +1,8 @@
 - name: Install brew apps
   homebrew:
-    update_homebrew: yes
+    # update_homebrew: yes
     upgrade_all: no
+    state: linked # present
     name: 
       # - csshx
       # - docker # let's see what the correct way is
@@ -9,7 +10,6 @@
       # - neovim # separately
       # - postgresql
       - ack
-      - adwaita-icon-theme
       - aspell
       - autoconf
       - awscli
@@ -40,6 +40,7 @@
       - pt
       - pygobject3
       - ruby
+      - ssh-copy-id
       - the_silver_searcher 
       - tintin
       - tmux
@@ -53,13 +54,15 @@
       - wxmac
       - youtube-dl
       - zsh
+      - shellcheck
+      - bash
 
 # - name: Install brew cask apps
 #   homebrew_cask:
 #     state: present
 #     accept_external_apps: yes
 #     sudo_password: {{ ansible_become_pass }}
-#     upgrade: yes
+#     upgrade: no
 #     name:
 #       # - dropbox
 #       # - skim

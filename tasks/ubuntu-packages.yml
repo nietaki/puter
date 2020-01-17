@@ -122,3 +122,22 @@
     name: 
       - youtube-dl
       - shellcheck
+
+- name: Install Erlang (asdf) dependency packages
+  apt:
+    name:
+      - autoconf
+      - build-essential
+      - erlang-wx
+      - fop
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
+      - libncurses5-dev
+      - libpng-dev
+      - libssh-dev
+      - libwxgtk3.0-dev
+      - m4
+      - unixodbc-dev
+      - xsltproc
+    state: latest
+  become: true
