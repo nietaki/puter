@@ -17,7 +17,7 @@
   tasks:
     - include: tasks/ubuntu-packages.yml
     - include: tasks/ubuntu-gui-packages.yml
-    - include: tasks/neovim.yml
+    - include: tasks/neovim-ubuntu.yml
     - include: tasks/ssh.yml
     - include: tasks/dotfiles.yml
     # - include: tasks/awscli.yml
