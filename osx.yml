@@ -22,7 +22,7 @@
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
     - include: tasks/zsh.yml
-    - include: tasks/src.yml
+    - include: tasks/repos.yml
 
   # handlers:
     # - include: handlers/all.yml

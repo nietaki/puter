@@ -37,7 +37,7 @@
     # - include: tasks/fzf.yml
     # - include: tasks/k9s.yml
     # goes last because the ssh key might not be set
-    - include: tasks/src.yml
+    - include: tasks/repos.yml
 
   # handlers:
     # - include: handlers/all.yml
