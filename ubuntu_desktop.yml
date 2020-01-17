@@ -3,10 +3,6 @@
 - hosts: 127.0.0.1
   connection: local
 
-  # Debian stuff, shouldn't apply
-  vars:
-    debian_release: stretch
-
   vars_prompt: 
     name: ssh_passphrase
     prompt: "Enter ssh passphrase. It will get used if an ssh key needs to be generated"
@@ -19,7 +15,10 @@
     - include: tasks/ubuntu-gui-packages.yml
     - include: tasks/neovim-ubuntu.yml
     - include: tasks/ssh.yml
+    - include: tasks/zsh.yml
+    - include: tasks/fix_ubuntu_zsh_snaps.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/repos.yml
     # - include: tasks/awscli.yml
     # - include: tasks/gcp-sdk.yml
     # - include: tasks/heroku.yml
@@ -30,14 +29,10 @@
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
     # - include: tasks/fish.yml
-    - include: tasks/zsh.yml
-    - include: tasks/fix_ubuntu_zsh_snaps.yml
     # - include: tasks/stack.yml
     # - include: tasks/docker.yml
     # - include: tasks/fzf.yml
     # - include: tasks/k9s.yml
-    # goes last because the ssh key might not be set
-    - include: tasks/repos.yml
 
   # handlers:
     # - include: handlers/all.yml
