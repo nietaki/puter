@@ -3,91 +3,96 @@
     update_homebrew: yes
     upgrade_all: no
     name: 
-      - autoconf
-      - ack
-      - boost
-      - cmatrix
-      # - coreutils
       # - csshx
-      - direvn
-      # - git
-      - httpie
-      - pygobject3
-      - gtk+3
+      # - docker # let's see what the correct way is
+      # - ispell
+      # - neovim # separately
+      # - postgresql
+      - ack
       - adwaita-icon-theme
+      - aspell
+      - autoconf
+      - awscli
+      - boost
+      - cmake
+      - cmatrix
+      - coreutils
+      - direnv
+      - ffmpeg
+      - git
+      - git-extras
+      - gpg
+      - gtk+3
+      - htop-osx
+      - httpie
+      - hub
+      - imagemagick
+      - jq
+      - lame
+      - libsodium
       - libtorrent-rasterbar
+      - libxslt
+      - llvm
       - midnight-commander
       - ncdu
+      - openjpeg
+      - openssl
+      - pt
+      - pygobject3
+      - ruby
+      - the_silver_searcher 
+      - tintin
       - tmux
       - tree
+      - unar
+      - unixodbc
       - unzip
-      - jq
-      - youtube-dl
-      - openssl
+      - vim
       - vim 
-      - cmake
-      - docker
-      # - git-extras
-      # - gpg
-      # - htop-osx
-      # - hub
-      # - ispell
-      # - libxslt
-      # - llvm
-      # - midnight-commander
-      # # - neovim
-      # - openjpeg
-      # # - postgresql
-      # - pt
-      # - ruby
-      # - the_silver_searcher 
-      # - tintin
-      # - unar
-      # - unixodbc
-      # - vim
-      # - wget
-      # - wxmac
-      # - zsh
+      - wget
+      - wxmac
+      - youtube-dl
+      - zsh
 
-- name: Install brew cask apps
-  homebrew_cask:
-    state: present
-    accept_external_apps: yes
-    sudo_password: {{ ansible_become_pass }}
-    upgrade: yes
-    name:
-      # - dropbox
-      # - skim
-      # - skype
-      - adobe-acrobat-reader
-      - adoptopenjdk
-      - bettertouchtool
-      - brave-browser
-      - dash
-      - datagrip
-      - deluge
-      - firefox
-      - flux
-      - google-chrome
-      - hex-fiend
-      - iterm2
-      - java11
-      - karabiner-elements
-      - kindle
-      - libreoffice
-      - ngrok
-      - postman
-      - slack
-      - sourcetree
-      - spotify
-      - steam
-      - sublime-text
-      - suspicious-package
-      - telegram
-      - texmaker
-      - texshop
-      - textmate
-      - unetbootin
-      - visual-studio-code
-      - vlc
-      - whatsapp
+# - name: Install brew cask apps
+#   homebrew_cask:
+#     state: present
+#     accept_external_apps: yes
+#     sudo_password: {{ ansible_become_pass }}
+#     upgrade: yes
+#     name:
+#       # - dropbox
+#       # - skim
+#       # - skype
+#       - adobe-acrobat-reader
+#       - adoptopenjdk
+#       - bettertouchtool
+#       - brave-browser
+#       - dash
+#       - datagrip
+#       - deluge
+#       - firefox
+#       - flux
+#       - google-chrome
+#       - hex-fiend
+#       - iterm2
+#       - java11
+#       - karabiner-elements
+#       - kindle
+#       - libreoffice
+#       - ngrok
+#       - postman
+#       - slack
+#       - sourcetree
+#       - spotify
+#       - steam
+#       - sublime-text
+#       - suspicious-package
+#       - telegram
+#       - texmaker
+#       - texshop
+#       - textmate
+#       - unetbootin
+#       - visual-studio-code
+#       - vlc
+#       - whatsapp
