@@ -5,12 +5,11 @@
     mode: 0700
   with_items:
     - ~/.config/nvim/autoload
-    - ~/bin/nvim-{{ neovim_version }}
 
 - name: Install neovim from Homebrew
   homebrew:
     upgrade_all: no
-    state: linked
+    # state: linked
     name: 
       - neovim
 
