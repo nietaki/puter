@@ -1,5 +1,6 @@
 - name: Install some asdf configurations
-  command: ~/.asdf/bin/asdf install {{ item['plugin'] }} {{ item['version'] }}
+  # a hack to make node install work a bit better
+  shell: PATH="$HOME/.asdf/bin:$PATH" ~/.asdf/bin/asdf install {{ item['plugin'] }} {{ item['version'] }}
   with_items:
     - plugin: erlang
       version: "21.2"
@@ -16,7 +17,7 @@
       version: 2.7.17
 
 - name: reshim asdf executables, just in case
-  command: ~/.asdf/bin/asdf reshim {{ item }}
+  shell: ~/.asdf/bin/asdf reshim {{ item }}
   with_items:
     - erlang
     - elixir

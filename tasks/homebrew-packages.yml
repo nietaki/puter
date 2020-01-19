@@ -60,7 +60,7 @@
   homebrew_cask:
     state: present
     accept_external_apps: yes
-    sudo_password: {{ ansible_become_pass }}
+    sudo_password: "{{ ansible_become_pass }}"
     upgrade: no
     name:
       # - dropbox

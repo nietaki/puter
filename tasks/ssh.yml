@@ -5,6 +5,4 @@
   no_log: true
 
 - name: Display the public ssh key
-  debug: var=item
-  with_file:
-    ~/.ssh/id_rsa.pub
+  command: cat ~/.ssh/id_rsa.pub

@@ -1,3 +1,4 @@
+# this is broken. TODO: fix
 - name: Add Deluge PPA repository
   apt_repository:
     repo: ppa:deluge-team/stable
