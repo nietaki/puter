@@ -10,6 +10,10 @@
     #   version: 3.12.0
     - plugin: nodejs
       version: 13.6.0
+    - plugin: python
+      version: 3.7.6
+    - plugin: python
+      version: 2.7.17
 
 - name: reshim asdf executables, just in case
   command: ~/.asdf/bin/asdf reshim {{ item }}
@@ -17,4 +21,5 @@
     - erlang
     - elixir
     - nodejs
+    - python
 

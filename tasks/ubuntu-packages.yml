@@ -21,6 +21,7 @@
   apt:
     state: latest
     name:
+      # - emacs
       - ack
       - aspell
       - atool
@@ -35,12 +36,11 @@
       - cmatrix
       - cowsay
       - curl
-      - deluged
-      - deluge-web
       - deluge-console
+      - deluge-web
+      - deluged
       - direnv
       - dnsutils
-      # - emacs
       - flac
       - flactag
       - fop
@@ -53,6 +53,7 @@
       - httpie
       - inotify-tools
       - jq
+      - libbz2-dev
       - libevent-dev
       - libffi-dev
       - libgl1-mesa-dev
@@ -60,11 +61,11 @@
       - libncurses5-dev
       - libpng-dev 
       - libreadline-dev
+      - libsqlite3-dev
       - libssh-dev
       - libssl-dev
       - libtool-bin
       - libvips-tools
-      - libwxgtk3.0-dev
       - libwxgtk3.0-dev
       - lltag
       - llvm
@@ -76,6 +77,7 @@
       - moreutils
       - mpv
       - ncdu
+      - net-tools
       - partitionmanager
       - psmisc
       - python-pip

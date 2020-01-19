@@ -49,7 +49,6 @@
       - unixodbc
       - unzip
       - vim
-      - vim 
       - wget
       - wxmac
       - youtube-dl

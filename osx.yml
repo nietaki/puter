@@ -16,9 +16,9 @@
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/repos.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
-    - include: tasks/repos.yml
 
   # handlers:
     # - include: handlers/all.yml

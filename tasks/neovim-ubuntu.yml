@@ -38,8 +38,10 @@
   pip:
     name: neovim
     executable: pip3
+  ignore_errors: yes
 
 - name: Install python2 neovim lib
   pip:
     name: neovim
-    executable: pip
+    executable: pip2
+  ignore_errors: yes
