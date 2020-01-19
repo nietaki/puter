@@ -1,13 +1,18 @@
 - name: add plex apt repository
-  apt_repository:
-    repo: deb https://downloads.plex.tv/repo/deb public main
-    update_cache: yes
-    state: present
+  lineinfile:
+    dest: /etc/apt/sources.list.d/plexmediaserver.list
+    line: "deb https://downloads.plex.tv/repo/deb public main"
+    create: yes
   become: true
 
 - name: add plex key from the server
   apt_key:
     url: https://downloads.plex.tv/plex-keys/PlexSign.key
+  become: true
+
+- name: Update apt cache
+  apt:
+    update_cache: true
   become: true
 
 - name: install plex media server
@@ -16,6 +21,8 @@
     state: latest
     name: plexmediaserver
     update_cache: yes
+
+# TODO start  Created symlink /etc/systemd/system/multi-user.target.wants/plexmediaserver.service -> /lib/systemd/system/plexmediaserver.service.
 
 
 

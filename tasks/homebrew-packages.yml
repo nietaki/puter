@@ -2,7 +2,7 @@
   homebrew:
     # update_homebrew: yes
     upgrade_all: no
-    state: linked # present
+    state: present # linked
     name: 
       # - csshx
       # - docker # let's see what the correct way is
@@ -60,7 +60,7 @@
   homebrew_cask:
     state: present
     accept_external_apps: yes
-    sudo_password: "{{ ansible_become_pass }}"
+    # sudo_password: "{{ ansible_become_pass }}"
     upgrade: no
     name:
       # - dropbox
@@ -78,7 +78,7 @@
       - google-chrome
       - hex-fiend
       - iterm2
-      - java11
+      # - java11
       - karabiner-elements
       - kindle
       - libreoffice
