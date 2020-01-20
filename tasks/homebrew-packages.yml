@@ -1,3 +1,9 @@
+- name: Download Docker dmg 
+  get_url:
+    url: https://download.docker.com/mac/stable/Docker.dmg
+    dest: ~/Downloads/Docker.dmg
+    mode: 0700
+
 - name: Install brew apps
   homebrew:
     # update_homebrew: yes
