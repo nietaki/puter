@@ -1,0 +1,22 @@
+- name: install prettier node package
+  shell: npm install --global prettier
+  ignore_errors: yes
+
+- name: prepare elixir_ls
+  shell: mix local.rebar --force && mix local.hex --force
+  args:
+    chdir: ~/repos/elixir-ls
+  ignore_errors: yes
+
+- name: compile elixir_ls
+  shell: mix deps.get && mix compile
+  args:
+    chdir: ~/repos/elixir-ls
+  ignore_errors: yes
+
+- name: release elixir_ls
+  shell: mix elixir_ls.release -o ~/repos/elixir-ls
+  args:
+    chdir: ~/repos/elixir-ls
+  ignore_errors: yes
+

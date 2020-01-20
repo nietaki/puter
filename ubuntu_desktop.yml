@@ -25,6 +25,7 @@
     # - include: tasks/fpp.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
+    - include: tasks/coding_helpers.yml
     # - include: tasks/rustup.yml
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml

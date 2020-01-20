@@ -19,7 +19,7 @@
     - include: tasks/repos.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
-    # TODO elixir ls
+    - include: tasks/coding_helpers.yml
     # TODO fresha repos
 
   # handlers:

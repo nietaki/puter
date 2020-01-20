@@ -23,6 +23,11 @@
     update_cache: yes
 
 # TODO start  Created symlink /etc/systemd/system/multi-user.target.wants/plexmediaserver.service -> /lib/systemd/system/plexmediaserver.service.
+- name: (auto)start plex media server service
+  systemd:
+    enabled: yes
+    state: started
+    name: plexmediaserver.service
 
 
 
