@@ -9,3 +9,5 @@
       path: gleam
     - url: git@github.com:nietaki/puter.git
       path: puter
+    - url: git@github.com:elixir-lsp/elixir-ls.git
+      path: elixir-ls

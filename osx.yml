@@ -19,6 +19,8 @@
     - include: tasks/repos.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
+    # TODO elixir ls
+    # TODO fresha repos
 
   # handlers:
     # - include: handlers/all.yml
