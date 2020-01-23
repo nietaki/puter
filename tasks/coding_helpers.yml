@@ -2,6 +2,14 @@
   shell: npm install --global prettier
   ignore_errors: yes
 
+- name: install neovim node package
+  shell: npm install --global neovim
+  ignore_errors: yes
+
+- name: install neovim ruby package
+  shell: gem install neovim
+  ignore_errors: yes
+
 - name: prepare elixir_ls
   shell: mix local.rebar --force && mix local.hex --force
   args:
@@ -19,4 +27,10 @@
   args:
     chdir: ~/repos/elixir-ls
   ignore_errors: yes
+
+- name: add aws profile env var in the fresha repos dir
+  lineinfile:
+    dest: ~/repos/fresha/.envrc
+    line: export AWS_PROFILE="shedul-developer"
+    create: yes
 

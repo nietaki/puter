@@ -25,8 +25,10 @@
       version: 22.0.5
     - plugin: elixir 
       version: 1.7.4-otp-20
-    - plugin: erlang
-      version: 20.3.8.23
+    # - plugin: erlang
+    #   version: 20.3.8.23
+    - plugin: kubectl 
+      version: 1.17.2
 
 - name: reshim asdf executables, just in case
   shell: ~/.asdf/bin/asdf reshim {{ item }}

@@ -60,6 +60,7 @@
       - youtube-dl
       - zsh
       - shellcheck
+      - sshuttle
       - bash
 
 - name: Install brew cask apps
