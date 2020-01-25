@@ -1,0 +1,74 @@
+# https://deluge.readthedocs.io/en/latest/how-to/systemd-service.html
+- name: create the media group
+  group:
+    name: media
+    system: yes
+  become: true
+
+- name: create the deluge user
+  user:
+    name: deluge
+    system: yes
+    comment: "Deluge Service"
+    password_lock: yes
+    group: media
+    home: /var/lib/deluge
+  become: true
+
+- name: add main user to the media group
+  user:
+    name: "{{ username }}"
+    groups: "media"
+    append: true
+  become: true
+
+- name: add plex user to the media group
+  user:
+    name: plex
+    groups: "media"
+    append: true
+  become: true
+
+- name: copy deluged.service file to the server
+  copy: 
+    src: files/deluge/deluged.service
+    dest: /etc/systemd/system/deluged.service
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+- name: create /etc/systemd/system/deluged.service.d/ directory
+  file:
+    path: /etc/systemd/system/deluged.service.d/
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+  become: true
+
+- name: copy deluge user.conf file to the server
+  copy: 
+    src: files/deluge/user.conf
+    dest: /etc/systemd/deluged.service.d/user.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+- name: create /srv/torrents directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0770'
+    owner: deluge
+    group: media
+  become: true
+  with_items:
+    - /srv/torrents
+    - /srv/torrents/downloading
+    - /srv/torrents/torrent_files
+    - /srv/torrents/finished
+    - /srv/torrents/finished/movies
+    - /srv/torrents/finished/tv
+    - /srv/torrents/finished/other

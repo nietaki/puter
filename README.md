@@ -36,3 +36,6 @@ machine afterwards anyways.
 ### NeoVim finishing touches
 
 `SPC p u` to update plugins (and install fzf)
+
+### setting up duckdns
+

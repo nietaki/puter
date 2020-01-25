@@ -98,6 +98,7 @@
       - unzip
       - vim-nox
       - w3m
+      - wamerican
       - wget
       - xsel
       - xsltproc
