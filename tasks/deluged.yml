@@ -1,4 +1,8 @@
+- set_fact:
+    deluge_home: /var/lib/deluge
+
 # https://deluge.readthedocs.io/en/latest/how-to/systemd-service.html
+# https://dev.deluge-torrent.org/wiki/UserGuide/ThinClient
 - name: create the media group
   group:
     name: media
@@ -12,7 +16,7 @@
     comment: "Deluge Service"
     password_lock: yes
     group: media
-    home: /var/lib/deluge
+    home: "{{ deluge_home }}"
   become: true
 
 - name: add main user to the media group
@@ -50,7 +54,7 @@
 - name: copy deluge user.conf file to the server
   copy: 
     src: files/deluge/user.conf
-    dest: /etc/systemd/deluged.service.d/user.conf
+    dest: /etc/systemd/system/deluged.service.d/user.conf
     owner: root
     group: root
     mode: '0644'
@@ -72,3 +76,42 @@
     - /srv/torrents/finished/movies
     - /srv/torrents/finished/tv
     - /srv/torrents/finished/other
+
+- name: start deluged to create config files
+  service:
+    name: deluged
+    state: started
+  become: true
+
+- name: wait for deluge config to get created
+  wait_for:
+    path: "{{ deluge_home }}/.config/deluge/core.conf"
+  become: true
+
+- name: stop deluged
+  service:
+    name: deluged
+    state: stopped
+  become: true
+
+- name: allow remote connections to deluge
+  lineinfile:
+    path: "{{ deluge_home }}/.config/deluge/core.conf"
+    line: '"allow_remote": true,'
+    regexp: 'allow_remote'
+    create: no
+  become: true
+
+- name: configure deluge user
+  lineinfile:
+    path: "{{ deluge_home }}/.config/deluge/auth"
+    line: "{{ username }}:{{ ssh_passphrase }}:10"
+    regexp: "{{ username }}"
+    create: no
+  become: true
+
+- name: start deluged for good
+  service:
+    name: deluged
+    state: started
+  become: true

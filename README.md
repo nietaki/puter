@@ -9,6 +9,14 @@ Setting up a computer is annoying, so let's automate it.
 puter ubuntu_desktop.yml
 ```
 
+If it's a remote computer you might have to setup openssh server on it first, locally
+
+```sh
+sudo apt install openssh-server
+```
+
+Ssh to the machine once first to get around some host key checking issues
+
 Tada!
 
 ## What doesn't it set up?
