@@ -28,6 +28,7 @@
     enabled: yes
     state: started
     name: plexmediaserver.service
+  become: true
 
 
 

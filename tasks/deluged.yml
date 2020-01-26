@@ -112,6 +112,7 @@
 
 - name: start deluged for good
   service:
+    enabled: yes
     name: deluged
     state: started
   become: true
