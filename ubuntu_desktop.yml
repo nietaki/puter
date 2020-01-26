@@ -12,6 +12,7 @@
 
   tasks:
     - include: tasks/ubuntu-packages.yml
+    - include: tasks/security.yml
     - include: tasks/ubuntu-gui-packages.yml
     - include: tasks/neovim-ubuntu.yml
     - include: tasks/ssh.yml

@@ -1,0 +1,4 @@
+- name: leave only the user access to their home directory
+  file:
+    path: "~"
+    mode: "go-rwx"

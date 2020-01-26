@@ -12,6 +12,7 @@
 
   tasks:
     - include: tasks/homebrew-packages.yml
+    - include: tasks/security.yml
     - include: tasks/neovim-osx.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
