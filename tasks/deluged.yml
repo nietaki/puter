@@ -76,6 +76,7 @@
     - /srv/torrents/finished/movies
     - /srv/torrents/finished/tv
     - /srv/torrents/finished/other
+    - /srv/torrents/finished/weird
 
 - name: start deluged to create config files
   service:
