@@ -3,37 +3,52 @@
   args:
     creates: ~/.cargo/bin/rustup
 
+- name: Update rustup
+  command: ~/.cargo/bin/rustup update
+
 - name: Install Rust language server
-  command: rustup component add rls rust-analysis rust-src
+  command: rustup component add rls
   args:
     creates: ~/.cargo/bin/rls
 
-# find alternative
-- name: Install fd
-  command: ~/.cargo/bin/cargo install fd-find
-  args:
-    creates: ~/.cargo/bin/fd
+- name: Install rust-analysis
+  command: ~/.cargo/bin/rustup component add rust-analysis
 
-# grep alternative
-- name: Install ripgrep
-  command: ~/.cargo/bin/cargo install ripgrep
-  args:
-    creates: ~/.cargo/bin/rg
+- name: Install rust-src
+  command: ~/.cargo/bin/rustup component add rust-src
 
-# Generic watching task runner
-- name: Install watchexec
-  command: ~/.cargo/bin/cargo install watchexec
+- name: Install rustup completions
+  command: bash -c '~/.cargo/bin/rustup completions zsh > ~/.oh-my-zsh/completions/_rustup'
   args:
-    creates: ~/.cargo/bin/watchexec
+    creates: ~/.oh-my-zsh/completions/_rustup
 
-# tokei counts lines of code
-- name: Install tokei
-  command: ~/.cargo/bin/cargo install tokei --features all
-  args:
-    creates: ~/.cargo/bin/tokei
+# # find alternative
+# - name: Install fd
+#   command: ~/.cargo/bin/cargo install fd-find
+#   args:
+#     creates: ~/.cargo/bin/fd
 
-# markdown documentation site generator
-- name: Install mdbook
-  command: ~/.cargo/bin/cargo install mdbook
-  args:
-    creates: ~/.cargo/bin/mdbook
+# # grep alternative
+# - name: Install ripgrep
+#   command: ~/.cargo/bin/cargo install ripgrep
+#   args:
+#     creates: ~/.cargo/bin/rg
+
+# # Generic watching task runner
+# - name: Install watchexec
+#   command: ~/.cargo/bin/cargo install watchexec
+#   args:
+#     creates: ~/.cargo/bin/watchexec
+
+# # tokei counts lines of code
+# - name: Install tokei
+#   command: ~/.cargo/bin/cargo install tokei --features all
+#   args:
+#     creates: ~/.cargo/bin/tokei
+
+# # markdown documentation site generator
+# - name: Install mdbook
+#   command: ~/.cargo/bin/cargo install mdbook
+#   args:
+#     creates: ~/.cargo/bin/mdbook
+

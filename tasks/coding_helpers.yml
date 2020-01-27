@@ -34,3 +34,8 @@
     line: export AWS_PROFILE="shedul-developer"
     create: yes
 
+- name: purge the cached zsh completions to regenerate them
+  shell: rm -rf ~/.zcompdump*
+  args:
+    warn: false
+

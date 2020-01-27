@@ -10,3 +10,13 @@
 - name: Set zsh as default shell
   command: "chsh -s {{ which_zsh.stdout }} {{ username }}"
   become: true
+
+- name: Create ~/.oh-my-zsh/functions
+  file:
+    path: ~/.oh-my-zsh/functions
+    state: directory
+
+- name: Create ~/.oh-my-zsh/completions
+  file:
+    path: ~/.oh-my-zsh/completions
+    state: directory

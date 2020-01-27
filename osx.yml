@@ -20,8 +20,9 @@
     - include: tasks/repos.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
-    - include: tasks/coding_helpers.yml
+    - include: tasks/rustup.yml
     - include: tasks/awscli.yml
+    - include: tasks/coding_helpers.yml
     # TODO fresha repos
 
   # handlers:
