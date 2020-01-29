@@ -4,12 +4,13 @@
     update_cache: yes
   become: true
 
-- name: Install deluge gui
+- name: Install apt packages
   become: true
   apt:
     state: latest
     name:
       - deluge # it's deluged deluge-web and deluge-console for headless
+      - filezilla
 
 - name: Install DataGrip from Snap
   become: true
