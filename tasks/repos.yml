@@ -4,10 +4,12 @@
     dest: "~/repos/{{ item['path'] }}"
     update: false
   with_items:
-
+    # Gleam
     - url: git@github.com:gleam-lang/gleam.git
       path: gleam
+    # Configs, dotfiles, utis
     - url: git@github.com:nietaki/puter.git
       path: puter
+    # Elixir stuff
     - url: git@github.com:elixir-lsp/elixir-ls.git
       path: elixir-ls

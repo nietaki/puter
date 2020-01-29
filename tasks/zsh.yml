@@ -4,6 +4,12 @@
     dest: ~/.oh-my-zsh
     update: no
 
+- name: Clone antigen
+  git:
+    repo: https://github.com/zsh-users/antigen.git
+    dest: ~/.antigen
+    update: no
+
 - shell: which zsh
   register: which_zsh
 
