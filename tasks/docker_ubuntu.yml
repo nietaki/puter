@@ -1,0 +1,83 @@
+- set_fact:
+    docker_compose_version: "1.25.3"
+
+- name: remove old docker packages
+  apt:
+    state: absent
+    name: "{{ item }}"
+  become: true
+  with_items:
+    - docker
+    - docker-engine
+    - docker.io
+    - containerd
+    - runc
+  ignore_errors: yes
+
+- name: add docker public key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+  become: true
+
+- name: check the ubuntu release name
+  shell: lsb_release -cs
+  register: ubuntu_release
+
+- name: Add docker apt repo
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_release.stdout }} stable"
+    state: present
+    update_cache: yes
+  become: true
+
+# - name: Update apt cache
+#   apt:
+#     update_cache: true
+#     cache_valid_time: 300
+#   become: true
+
+- name: Install dep packages for docker
+  apt:
+    state: present
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+  become: true
+
+- name: Install docker packages
+  apt:
+    state: latest
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+  become: true
+
+- name: Ensure group docker exists
+  group:
+    name: docker
+    state: present
+
+- name: Add user to docker group
+  user:
+    name: "{{ username }}"
+    groups: docker
+    append: yes
+  become: true
+
+- name: check uname -s
+  shell: uname -s
+  register: uname_s
+
+- name: check uname -m
+  shell: uname -m
+  register: uname_m
+
+- name: download docker-compose into the executable directory
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout }}"
+    dest: ~/bin/docker-compose
+    mode: 0700
