@@ -79,5 +79,15 @@
 - name: download docker-compose into the executable directory
   get_url:
     url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout }}"
-    dest: ~/bin/docker-compose
-    mode: 0700
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+    owner: root
+    group: root
+  become: true
+
+- name: Enable docker service (make it start on boot)
+  service:
+    enabled: yes
+    name: docker
+    state: started
+  become: true

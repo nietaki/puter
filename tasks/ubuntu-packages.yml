@@ -1,4 +1,9 @@
-# this is broken. TODO: fix
+- name: create ~/bin directory for future use
+  file:
+    path: ~/bin
+    state: directory
+    mode: '0750'
+
 - name: Add Deluge PPA repository
   apt_repository:
     repo: ppa:deluge-team/stable

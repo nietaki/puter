@@ -10,6 +10,11 @@
   shell: gem install neovim
   ignore_errors: yes
 
+- name: override elixir_ls tool versions
+  file:
+    path: ~/repos/elixir-ls/.tool-versions
+    state: absent
+
 - name: prepare elixir_ls
   shell: mix local.rebar --force && mix local.hex --force
   args:
