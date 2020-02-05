@@ -1,0 +1,9 @@
+{
+  "debug": true,
+  "default-address-pools": [
+    {
+      "base": "192.134.0.0/16",
+      "size": 24
+    }
+  ]
+}
