@@ -33,6 +33,13 @@
     chdir: ~/repos/elixir-ls
   ignore_errors: yes
 
+- name: fix weird behaviour of my environment ¯\_(ツ)_/¯
+  replace:
+    dest: ~/repos/elixir-ls/language_server.sh
+    regexp: '^([^#\n].*asdf/asdf\.sh.*)$'
+    replace: '# \1'
+  ignore_errors: yes
+
 - name: add aws profile env var in the fresha repos dir
   lineinfile:
     dest: ~/repos/fresha/.envrc

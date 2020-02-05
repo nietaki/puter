@@ -33,6 +33,7 @@
       - ffmpeg
       - git
       - git-extras
+      - gnu-units
       - gpg
       - gtk+3
       - htop-osx

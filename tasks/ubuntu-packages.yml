@@ -47,12 +47,14 @@
       - deluged
       - direnv
       - dnsutils
+      - espeak
       - flac
       - flactag
       - fop
       - fortune
       - fuse
       - gcc
+      - gespeaker
       - git
       - git-extras
       - htop
@@ -100,6 +102,7 @@
       - tmux
       - toilet
       - tree
+      - units
       - unixodbc-dev
       - unzip
       - vim-nox
