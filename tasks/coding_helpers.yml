@@ -1,3 +1,4 @@
+# Neovim / general
 - name: install prettier node package
   shell: npm install --global prettier
   ignore_errors: yes
@@ -10,6 +11,7 @@
   shell: gem install neovim
   ignore_errors: yes
 
+# Elixir
 - name: override elixir_ls tool versions
   file:
     path: ~/repos/elixir-ls/.tool-versions
@@ -40,12 +42,19 @@
     replace: '# \1'
   ignore_errors: yes
 
+# Ruby
+- name: install solargraph (Ruby LSP)
+  shell: gem install solargraph
+  ignore_errors: yes
+
+# Fresha
 - name: add aws profile env var in the fresha repos dir
   lineinfile:
     dest: ~/repos/fresha/.envrc
     line: export AWS_PROFILE="shedul-developer"
     create: yes
 
+# ZSH
 - name: purge the cached zsh completions to regenerate them
   shell: rm -rf ~/.zcompdump*
   args:

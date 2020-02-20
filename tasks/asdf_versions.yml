@@ -19,15 +19,15 @@
       version: 2.7.0
     - plugin: ruby
       version: 2.4.7
-    - plugin: elixir 
+    - plugin: elixir
       version: 1.9.1-otp-22
     - plugin: erlang
       version: 22.0.5
-    - plugin: elixir 
+    - plugin: elixir
       version: 1.7.4-otp-20
     # - plugin: erlang
     #   version: 20.3.8.23
-    - plugin: kubectl 
+    - plugin: kubectl
       version: 1.17.2
 
 - name: reshim asdf executables, just in case
