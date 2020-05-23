@@ -2,6 +2,7 @@
   apt_repository:
     repo: ppa:deluge-team/stable
     update_cache: yes
+    state: absent
   become: true
 
 - name: Install apt packages
@@ -35,6 +36,7 @@
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
+# spt is spotify-tui
 - name: Install other desktop apps from Snap
   become: true
   snap:
@@ -44,4 +46,5 @@
       - libreoffice
       - opera
       - standard-notes
+      - spt
       # maybe docker?

@@ -78,6 +78,8 @@
     - /srv/torrents/finished/other
     - /srv/torrents/finished/weird
     - /srv/torrents/finished/polskie
+    - /srv/torrents/finished/ebooks
+    - /srv/torrents/finished/audiobooks
 
 - name: start deluged to create config files
   service:

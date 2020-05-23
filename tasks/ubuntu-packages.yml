@@ -8,6 +8,7 @@
   apt_repository:
     repo: ppa:deluge-team/stable
     update_cache: yes
+    state: absent
   become: true
 
 - name: Update apt cache
@@ -114,6 +115,11 @@
       - xz-utils
       - zeal
       - zsh
+
+- name: RipGrep from .deb
+  become: true
+  apt:
+    deb: https://github.com/BurntSushi/ripgrep/releases/download/12.0.0/ripgrep_12.0.0_amd64.deb
 
 - name: Remove some packages that should be installed not via apt
   become: true
