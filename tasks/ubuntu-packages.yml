@@ -4,18 +4,48 @@
     state: directory
     mode: '0750'
 
-- name: Add Deluge PPA repository
-  apt_repository:
-    repo: ppa:deluge-team/stable
-    update_cache: yes
-    state: absent
+- name: Add Postgres signing key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+  become: true
+
+- name: add the postgres source list file
+  file:
+    path: "/etc/apt/sources.list.d/pgdg.list"
+    state: touch
+    owner: root
+    group: root
+  become: true
+
+- name: add the postgres source list entry
+  lineinfile:
+    path: "/etc/apt/sources.list.d/pgdg.list"
+    line: 'deb http://apt.postgresql.org/pub/repos/apt bionic-pgdg main'
+    regexp: 'postgresql'
+    create: no
   become: true
 
 - name: Update apt cache
   apt:
     update_cache: true
-    cache_valid_time: 1800
+    cache_valid_time: 60
   become: true
+
+- name: Remove Deluge PPA repository
+  apt_repository:
+    repo: ppa:deluge-team/stable
+    update_cache: no
+    state: absent
+  become: true
+
+# - name: Add Postgres PPA
+#   apt_repository:
+#     repo: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ubuntu_codename }} main"
+#     update_cache: yes
+#     state: present
+#   become: true
+
 
 # TODO check if this is safe on KDE Neon or if we should use pkcon 
 # - name: Upgrade all apt packages
@@ -69,6 +99,7 @@
       - libglu1-mesa-dev
       - libncurses5-dev
       - libpng-dev 
+      - libpq-dev 
       - libreadline-dev
       - libsqlite3-dev
       - libssh-dev
@@ -88,7 +119,8 @@
       - ncdu
       - net-tools
       - partitionmanager
-      - postgresql-client
+      # - postgresql-client
+      - postgresql-client-12
       - psmisc
       - python-pip
       - python3-pip
