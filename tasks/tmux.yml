@@ -1,0 +1,25 @@
+- name: make sure there's no tmux service
+  file:
+    path: /etc/systemd/user/tmux.service
+    state: absent
+  become: true
+
+- name: copy tmux.service file to the server
+  copy: 
+    src: files/tmux/tmux.service
+    dest: /etc/systemd/system/tmux.service
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+- name: reload services
+  shell: systemctl daemon-reload
+  become: true
+
+- name: start tmux for good
+  service:
+    enabled: yes
+    name: tmux
+    state: restarted
+  become: true

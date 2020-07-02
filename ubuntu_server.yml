@@ -19,6 +19,7 @@
     - include: tasks/fix_ubuntu_zsh_snaps.yml
     - include: tasks/dotfiles_readonly.yml
     - include: tasks/asdf.yml
+    - include: tasks/tmux.yml
     - include: tasks/plex_server.yml
     - include: tasks/deluged.yml
 
