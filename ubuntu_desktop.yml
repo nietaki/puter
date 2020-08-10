@@ -36,6 +36,7 @@
     # - include: tasks/docker.yml
     # - include: tasks/fzf.yml
     # - include: tasks/k9s.yml
+    - include: tasks/platformio.yml
 
   # handlers:
     # - include: handlers/all.yml

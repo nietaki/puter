@@ -1,0 +1,16 @@
+- name: Create personal temp directory if doesn't exist
+  file:
+    path: ~/tmp/
+    state: directory
+    mode: '0755'
+
+- name: download get-platformio.py
+  get_url:
+    url: https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+    dest: ~/tmp/get-platformio.py
+
+- name: run get-platformio.py
+  command: python get-platformio.py
+  args:
+    chdir: ~/tmp
+    creates: ~/.platformio/penv/bin/platformio

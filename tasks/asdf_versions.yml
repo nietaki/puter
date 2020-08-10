@@ -25,6 +25,8 @@
       version: 22.0.5
     - plugin: elixir
       version: 1.7.4-otp-20
+    - plugin: elixir
+      version: 1.10.1-otp-22
     # - plugin: erlang
     #   version: 20.3.8.23
     - plugin: kubectl
