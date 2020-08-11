@@ -14,3 +14,25 @@
   args:
     chdir: ~/tmp
     creates: ~/.platformio/penv/bin/platformio
+
+- name: download platformio udev rules
+  get_url:
+    url: https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules
+    dest: /etc/udev/rules.d/99-platformio-udev.rules
+    force: yes
+    owner: root
+    mode: '644'
+  become: true
+
+- name: add main user to the media group
+  user:
+    name: "{{ username }}"
+    groups: dialout,plugdev
+    append: true
+  become: true
+
+- name: restart udev
+  service:
+    name: udev
+    state: restarted
+  become: true

@@ -4,6 +4,19 @@
     dest: "~/repos/{{ item['path'] }}"
     update: false
   with_items:
+    # projects
+    - url: git@github.com:nietaki/hokime.git
+      path: hokime
+    - url: git@github.com:nietaki/rexbug.git
+      path: rexbug
+    - url: git@github.com:nietaki/orange.git
+      path: orange
+    - url: git@github.com:nietaki/air_quality_monitor_jacek.git
+      path: air_quality_monitor_jacek
+    - url: git@github.com:nietaki/stranger_things_lights.git
+      path: stranger_things_lights
+    - url: git@github.com:nietaki/nietaki.github.io.git
+      path: nietaki.github.io
     # Gleam
     - url: git@github.com:gleam-lang/gleam.git
       path: gleam

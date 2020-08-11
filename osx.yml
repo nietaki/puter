@@ -23,7 +23,6 @@
     - include: tasks/rustup.yml
     - include: tasks/awscli.yml
     - include: tasks/coding_helpers.yml
-    - include: tasks/platformio.yml
     # TODO fresha repos
 
   # handlers:
