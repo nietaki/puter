@@ -1,0 +1,22 @@
+- set_fact:
+    aws_vault_version: 6.2.0
+
+- name: Create AWS Vault dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0700
+  with_items:
+    - ~/bin/aws-vault-v{{ aws_vault_version }}
+
+- name: Download AWS Vault 
+  get_url:
+    url: https://github.com/99designs/aws-vault/releases/download/v{{ aws_vault_version }}/aws-vault-linux-amd64
+    dest: ~/bin/aws-vault-v{{ aws_vault_version }}/aws-vault-linux-amd64
+    mode: 0700
+
+- name: Symlink aws-vault executable
+  file:
+    src: ~/bin/aws-vault-v{{ aws_vault_version }}/aws-vault-linux-amd64
+    dest: ~/bin/aws-vault
+    state: link
