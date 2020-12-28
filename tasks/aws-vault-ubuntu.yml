@@ -1,5 +1,5 @@
 - set_fact:
-    aws_vault_version: 6.2.0
+    aws_vault_version: 6.0.1
 
 - name: Create AWS Vault dirs
   file:

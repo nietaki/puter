@@ -6,7 +6,7 @@ Setting up a computer is annoying, so let's automate it.
 ## Usage
 
 ```sh
-puter ubuntu_desktop.yml
+./puter ubuntu_desktop.yml
 ```
 
 If it's a remote computer you might have to setup openssh server on it first, locally

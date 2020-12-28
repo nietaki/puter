@@ -28,6 +28,7 @@
     - include: tasks/asdf_versions.yml
     - include: tasks/awscli.yml
     - include: tasks/rustup.yml
+    - include: tasks/aws-vault-ubuntu.yml
     - include: tasks/coding_helpers.yml
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
