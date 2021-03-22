@@ -38,6 +38,7 @@
     # - include: tasks/fzf.yml
     # - include: tasks/k9s.yml
     - include: tasks/platformio.yml
+    # - include: tasks/ccls.yml
 
   # handlers:
     # - include: handlers/all.yml

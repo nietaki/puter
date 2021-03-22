@@ -1,0 +1,15 @@
+- name: ccls deps
+  become: true
+  apt:
+    state: latest
+    name:
+      - clang
+      - zlib1g-dev
+      - libncurses-dev
+      - libclang-dev
+
+- name: Clone ccls
+  git:
+    repo: https://github.com/MaskRay/ccls.git
+    dest: ~/repos/ccls
+    update: no

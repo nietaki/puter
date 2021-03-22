@@ -69,6 +69,7 @@
       - bzip2
       - clang-format
       - cloc
+      # - clangd-10
       - cmake
       - cmatrix
       - cowsay
