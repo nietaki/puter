@@ -27,9 +27,9 @@
     - url: git@github.com:elixir-lsp/elixir-ls.git
       path: elixir-ls
     # Fresha stuff
-    - url: git@github.com:surgeventures/system.git
-      path: fresha/system
-    - url: git@github.com:surgeventures/infrastructure.git
-      path: fresha/infrastructure
-    - url: git@github.com:surgeventures/provisioning.git
-      path: fresha/provisioning
+    # - url: git@github.com:surgeventures/system.git
+    #  path: fresha/system
+    # - url: git@github.com:surgeventures/infrastructure.git
+    #   path: fresha/infrastructure
+    # - url: git@github.com:surgeventures/provisioning.git
+    #  path: fresha/provisioning

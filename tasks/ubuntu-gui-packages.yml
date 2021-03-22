@@ -42,9 +42,44 @@
   snap:
     name: 
       - vlc
-      - spotify
+      # - spotify
       - libreoffice
       - opera
       - standard-notes
       - spt
       # maybe docker?
+
+- name: add spotify gpg key
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+    state: present
+  become: true
+
+- name: add the spotify source list file
+  file:
+    path: "/etc/apt/sources.list.d/spotify.list"
+    state: touch
+    owner: root
+    group: root
+  become: true
+
+- name: add the spotify source list entry
+  lineinfile:
+    path: "/etc/apt/sources.list.d/spotify.list"
+    line: 'deb http://repository.spotify.com stable non-free'
+    regexp: 'spotify'
+    create: no
+  become: true
+
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 60
+  become: true
+
+- name: Install Spotify
+  become: true
+  apt:
+    state: latest
+    name:
+      - spotify-client

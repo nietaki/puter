@@ -21,7 +21,7 @@
 - name: add the postgres source list entry
   lineinfile:
     path: "/etc/apt/sources.list.d/pgdg.list"
-    line: 'deb http://apt.postgresql.org/pub/repos/apt bionic-pgdg main'
+    line: 'deb http://apt.postgresql.org/pub/repos/apt {{ ubuntu_codename }}-pgdg main'
     regexp: 'postgresql'
     create: no
   become: true
@@ -86,7 +86,7 @@
       - fortune
       - fuse
       - gcc
-      - gespeaker
+      # - gespeaker
       - git
       - git-extras
       - htop
@@ -107,7 +107,7 @@
       - libssl-dev
       - libtool-bin
       - libvips-tools
-      - libwxgtk3.0-dev
+      - libxml2-utils
       - lltag
       - llvm
       - m4
@@ -123,7 +123,7 @@
       # - postgresql-client
       - postgresql-client-12
       - psmisc
-      - python-pip
+      # - python-pip
       - python3-pip
       - rsync
       - sshuttle
@@ -185,12 +185,16 @@
       - fop
       - libgl1-mesa-dev
       - libglu1-mesa-dev
-      - libncurses5-dev
+      # - libncurses5-dev
+      - libncurses-dev
       - libpng-dev
       - libssh-dev
-      - libwxgtk3.0-dev
       - m4
       - unixodbc-dev
       - xsltproc
+      # - libwxgtk3.0-dev
+      - libwxgtk3.0-gtk3-dev 
+      - libxml2-utils
+      - openjdk-11-jdk
     state: latest
   become: true

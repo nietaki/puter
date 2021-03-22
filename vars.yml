@@ -1,4 +1,5 @@
 username: nietaki
 github_username: nietaki
 email: hello@nietaki.com
-ubuntu_codename: bionic
+ubuntu_codename: focal
+ansible_python_interpreter: /usr/bin/python3
