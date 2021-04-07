@@ -76,7 +76,7 @@
 - name: Update apt cache
   apt:
     update_cache: true
-    cache_valid_time: 60
+    # cache_valid_time: 60
   become: true
 
 - name: Install Spotify
