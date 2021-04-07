@@ -13,6 +13,8 @@
       - deluge # it's deluged deluge-web and deluge-console for headless
       - filezilla
       - wxmaxima
+      - libreoffice-plasma
+      - libreoffice
 
 - name: Install DataGrip from Snap
   become: true
@@ -44,7 +46,7 @@
     name:
       - vlc
       # - spotify
-      - libreoffice
+      # - libreoffice
       - opera
       # - standard-notes
       # maybe docker?
