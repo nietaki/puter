@@ -12,6 +12,7 @@
     name:
       - deluge # it's deluged deluge-web and deluge-console for headless
       - filezilla
+      - wxmaxima
 
 - name: Install DataGrip from Snap
   become: true
