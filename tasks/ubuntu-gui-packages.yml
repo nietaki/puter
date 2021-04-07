@@ -26,11 +26,11 @@
     name: slack
     classic: yes
 
-- name: Install VS Code from Snap
-  become: true
-  snap:
-    name: code
-    classic: yes
+# - name: Install VS Code from Snap
+#   become: true
+#   snap:
+#     name: code
+#     classic: yes
 
 - name: Install Google Chrome from .deb
   become: true
@@ -41,13 +41,12 @@
 - name: Install other desktop apps from Snap
   become: true
   snap:
-    name: 
+    name:
       - vlc
       # - spotify
       - libreoffice
       - opera
-      - standard-notes
-      - spt
+      # - standard-notes
       # maybe docker?
 
 - name: add spotify gpg key

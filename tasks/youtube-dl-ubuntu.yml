@@ -1,0 +1,5 @@
+- name: Download youtube-dl binary
+  get_url:
+    url: https://youtube-dl.org/downloads/latest/youtube-dl
+    dest: ~/bin/youtube-dl
+    mode: 0700

@@ -36,15 +36,15 @@
   args:
     creates: ~/.asdf/plugins/terraform
 
-- name: asdf OCaml
-  command: ~/.asdf/bin/asdf plugin-add ocaml https://github.com/vic/asdf-ocaml.git
-  args:
-    creates: ~/.asdf/plugins/ocaml
+# - name: asdf OCaml
+#   command: ~/.asdf/bin/asdf plugin-add ocaml https://github.com/vic/asdf-ocaml.git
+#   args:
+#     creates: ~/.asdf/plugins/ocaml
 
-- name: asdf Golang
-  command: ~/.asdf/bin/asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-  args:
-    creates: ~/.asdf/plugins/golang
+# - name: asdf Golang
+#   command: ~/.asdf/bin/asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+#   args:
+#     creates: ~/.asdf/plugins/golang
 
 # - name: asdf Python
 #   command: ~/.asdf/bin/asdf plugin-add python https://github.com/danhper/asdf-python

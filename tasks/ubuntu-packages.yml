@@ -169,12 +169,12 @@
 #     name:
 #       - termtosvg
 
-- name: Install cli snap packages
-  become: true
-  snap:
-    name: 
-      - youtube-dl
-      - shellcheck
+# - name: Install cli snap packages
+#   become: true
+#   snap:
+#     name: 
+#       # - youtube-dl
+#       # - shellcheck
 
 - name: Install Erlang (asdf) dependency packages
   apt:

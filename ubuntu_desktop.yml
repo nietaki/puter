@@ -18,6 +18,7 @@
     - include: tasks/neovim-ubuntu.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
+    - include: tasks/youtube-dl-ubuntu.yml
     - include: tasks/fix_ubuntu_zsh_snaps.yml
     - include: tasks/dotfiles.yml
     - include: tasks/repos.yml
