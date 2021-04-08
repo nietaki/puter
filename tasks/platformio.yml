@@ -10,7 +10,7 @@
     dest: ~/tmp/get-platformio.py
 
 - name: run get-platformio.py
-  command: python get-platformio.py
+  command: python3 get-platformio.py
   args:
     chdir: ~/tmp
     creates: ~/.platformio/penv/bin/platformio

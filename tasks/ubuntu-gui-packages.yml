@@ -22,11 +22,11 @@
     name: datagrip
     classic: yes
 
-- name: Install Slack from Snap
-  become: true
-  snap:
-    name: slack
-    classic: yes
+# - name: Install Slack from Snap
+#   become: true
+#   snap:
+#     name: slack
+#     classic: yes
 
 # - name: Install VS Code from Snap
 #   become: true
@@ -38,6 +38,11 @@
   become: true
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+- name: Install Slack from .deb
+  become: true
+  apt:
+    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb
 
 # spt is spotify-tui
 - name: Install other desktop apps from Snap

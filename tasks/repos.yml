@@ -5,6 +5,8 @@
     update: false
   with_items:
     # projects
+    - url: git@github.com:nietaki/archimedes.git
+      path: archimedes
     - url: git@github.com:nietaki/hokime.git
       path: hokime
     - url: git@github.com:nietaki/rexbug.git
