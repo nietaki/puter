@@ -5,8 +5,6 @@
     update: false
   with_items:
     # projects
-    - url: git@github.com:nietaki/archimedes.git
-      path: archimedes
     - url: git@github.com:nietaki/hokime.git
       path: hokime
     - url: git@github.com:nietaki/rexbug.git
@@ -35,3 +33,15 @@
     #   path: fresha/infrastructure
     # - url: git@github.com:surgeventures/provisioning.git
     #  path: fresha/provisioning
+
+- name: Fetch Moving Pieces git repos
+  git:
+    repo: "{{ item['url'] }}"
+    dest: "~/repos/moving_pieces/{{ item['path'] }}"
+    update: false
+  with_items:
+    # projects
+    - url: git@github.com:nietaki/archimedes.git
+      path: archimedes
+    - url: git@github.com:nietaki/moving_pieces_web.git
+      path: moving_pieces_web
