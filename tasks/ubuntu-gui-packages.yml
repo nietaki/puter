@@ -15,6 +15,17 @@
       - wxmaxima
       - libreoffice-plasma
       - libreoffice
+      - wireshark
+      - flatpak
+      - gnome-software-plugin-flatpak
+      - xdg-desktop-portal
+
+- name: Add user to wireshark group
+  user:
+    name: "{{ username }}"
+    groups: wireshark
+    append: yes
+  become: true
 
 - name: Install DataGrip from Snap
   become: true
@@ -43,6 +54,7 @@
   become: true
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb
+  ignore_errors: yes
 
 # spt is spotify-tui
 - name: Install other desktop apps from Snap
