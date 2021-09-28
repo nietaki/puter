@@ -64,6 +64,7 @@
       - atool
       - autoconf
       - autojump
+      - avahi-utils
       - bless
       - build-essential
       - bzip2
