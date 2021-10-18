@@ -10,7 +10,7 @@
     # - plugin: rebar
     #   version: 3.12.0
     - plugin: nodejs
-      version: 13.6.0
+      version: 14.18.0
     # - plugin: python
     #   version: 3.7.6
     # - plugin: python
