@@ -69,4 +69,7 @@ fi
 
 set -u # Error on unset vars
 
+# TODO lazy install this
+ansible-galaxy collection install community.general
+
 ansible-playbook "$1" -i hosts.ini --ask-become-pass --diff -v --ask-pass
