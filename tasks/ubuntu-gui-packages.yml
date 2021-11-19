@@ -102,3 +102,10 @@
     state: latest
     name:
       - spotify-client
+
+- name: Install Telegram from Flatpak
+  become: true
+  community.general.flatpak:
+    name: org.telegram.desktop
+    state: present
+
