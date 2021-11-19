@@ -42,17 +42,17 @@
 #     replace: '# \1'
 #   ignore_errors: yes
 
-# Ruby
-- name: install solargraph (Ruby LSP)
-  shell: gem install solargraph
-  ignore_errors: yes
+# # Ruby
+# - name: install solargraph (Ruby LSP)
+#   shell: gem install solargraph
+#   ignore_errors: yes
 
-# Fresha
-- name: add aws profile env var in the fresha repos dir
-  lineinfile:
-    dest: ~/repos/fresha/.envrc
-    line: export AWS_PROFILE="shedul-developer"
-    create: yes
+# # Fresha
+# - name: add aws profile env var in the fresha repos dir
+#   lineinfile:
+#     dest: ~/repos/fresha/.envrc
+#     line: export AWS_PROFILE="shedul-developer"
+#     create: yes
 
 # ZSH
 - name: purge the cached zsh completions to regenerate them

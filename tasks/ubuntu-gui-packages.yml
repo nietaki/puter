@@ -26,6 +26,7 @@
     groups: wireshark
     append: yes
   become: true
+  ignore_errors: yes
 
 - name: Install DataGrip from Snap
   become: true
