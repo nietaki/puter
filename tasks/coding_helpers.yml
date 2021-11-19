@@ -11,36 +11,36 @@
   shell: gem install neovim
   ignore_errors: yes
 
-# Elixir
-- name: override elixir_ls tool versions
-  file:
-    path: ~/repos/elixir-ls/.tool-versions
-    state: absent
+# # Elixir
+# - name: override elixir_ls tool versions
+#   file:
+#     path: ~/repos/elixir-ls/.tool-versions
+#     state: absent
 
-- name: prepare elixir_ls
-  shell: mix local.rebar --force && mix local.hex --force
-  args:
-    chdir: ~/repos/elixir-ls
-  ignore_errors: yes
+# - name: prepare elixir_ls
+#   shell: mix local.rebar --force && mix local.hex --force
+#   args:
+#     chdir: ~/repos/elixir-ls
+#   ignore_errors: yes
 
-- name: compile elixir_ls
-  shell: mix deps.get && mix compile
-  args:
-    chdir: ~/repos/elixir-ls
-  ignore_errors: yes
+# - name: compile elixir_ls
+#   shell: mix deps.get && mix compile
+#   args:
+#     chdir: ~/repos/elixir-ls
+#   ignore_errors: yes
 
-- name: release elixir_ls
-  shell: mix elixir_ls.release -o ~/repos/elixir-ls
-  args:
-    chdir: ~/repos/elixir-ls
-  ignore_errors: yes
+# - name: release elixir_ls
+#   shell: mix elixir_ls.release -o ~/repos/elixir-ls
+#   args:
+#     chdir: ~/repos/elixir-ls
+#   ignore_errors: yes
 
-- name: fix weird behaviour of my environment ¯\_(ツ)_/¯
-  replace:
-    dest: ~/repos/elixir-ls/language_server.sh
-    regexp: '^([^#\n].*asdf/asdf\.sh.*)$'
-    replace: '# \1'
-  ignore_errors: yes
+# - name: fix weird behaviour of my environment ¯\_(ツ)_/¯
+#   replace:
+#     dest: ~/repos/elixir-ls/language_server.sh
+#     regexp: '^([^#\n].*asdf/asdf\.sh.*)$'
+#     replace: '# \1'
+#   ignore_errors: yes
 
 # Ruby
 - name: install solargraph (Ruby LSP)
