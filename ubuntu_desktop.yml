@@ -27,6 +27,7 @@
     # - include: tasks/fpp.yml
     - include: tasks/asdf.yml
     - include: tasks/asdf_versions.yml
+    - include: tasks/flutter.yml
     - include: tasks/awscli.yml
     - include: tasks/rustup.yml
     - include: tasks/aws-vault-ubuntu.yml

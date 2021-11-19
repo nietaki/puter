@@ -1,0 +1,111 @@
+- set_fact:
+    android_studio_config_dir: ~/.config/Google/AndroidStudio2020.3
+
+- name: add i386 architecture
+  command: dpkg --add-architecture i386
+  become: true
+
+- name: print foreign architectures
+  command: dpkg --print-foreign-architectures
+  become: true
+
+- name: install android studio prerequisites
+  become: true
+  apt:
+    update_cache: true
+    state: latest
+    name:
+      - libc6:i386
+      - libncurses5:i386
+      - libstdc++6:i386
+      - lib32z1
+      - libbz2-1.0:i386
+
+- name: Unpack Android Studio
+  unarchive:
+    src: https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2020.3.1.25/android-studio-2020.3.1.25-linux.tar.gz
+    dest: ~/
+    remote_src: yes
+    creates: /home/{{ username }}/android-studio/bin/studio.sh
+
+- name: create Android Studio config dir
+  file:
+    path: "{{ android_studio_config_dir }}"
+    state: directory
+    mode: '0770'
+
+- name: copy i386 android studio vm options
+  copy: 
+    src: files/android/studio.vmoptions
+    dest: "{{ android_studio_config_dir }}/studio.vmoptions"
+
+- name: copy x64 android studio vm options
+  copy: 
+    src: files/android/studio.vmoptions
+    dest: "{{ android_studio_config_dir }}/studio64.vmoptions"
+
+- name: Install prerequisite packages
+  become: true
+  apt:
+    state: latest
+    name:
+      - bash
+      - curl
+      - file
+      - unzip
+      - xz-utils
+      - zip
+      - libglu1-mesa
+      - libglu1-mesa-dev
+
+
+- name: Install flutter from snap
+  become: true
+  snap:
+    name: flutter
+    classic: yes
+
+# NOTE: studio.sh needs to be run by hand here
+
+# # I have this in my path: export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+# - name: install cmdline-tools
+#   command: /home/nietaki/Android/Sdk/tools/bin/sdkmanager --install "cmdline-tools;latest"
+#   environment:
+#     JAVA_HOME: /home/nietaki/android-studio/jre/
+#   ignore_errors: yes
+
+- name: do this! https://stackoverflow.com/a/64389804/246337
+  command: echo https://stackoverflow.com/a/64389804/246337
+
+# https://stackoverflow.com/a/64389804/246337
+
+- name: show flutter sdk path
+  command: flutter sdk-path
+
+# - name: run flutter doctor --android-licenses
+#   command: flutter doctor --android-licenses
+#   ignore_errors: yes
+#   environment:
+#     JAVA_HOME: /home/nietaki/android-studio/jre/
+
+- name: run flutter doctor
+  command: flutter doctor
+  ignore_errors: yes
+  # environment:
+  #   JAVA_HOME: /home/nietaki/android-studio/jre/
+
+- name: Install KVM packages 
+  become: true
+  apt:
+    state: latest
+    name:
+      - qemu-kvm 
+      - libvirt-daemon-system 
+      - libvirt-clients 
+      - bridge-utils
+      - cpu-checker
+  ignore_errors: yes
+
+- name: run kvm-ok
+  command: kvm-ok
+  ignore_errors: yes
