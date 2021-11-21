@@ -1,3 +1,13 @@
+- name: Create ~/repos
+  file:
+    path: ~/repos
+    state: directory
+
+- name: Create ~/repos/utils
+  file:
+    path: ~/repos/utils
+    state: directory
+
 - name: Fetch git repos
   git:
     repo: "{{ item['url'] }}"
@@ -33,6 +43,8 @@
     #   path: fresha/infrastructure
     # - url: git@github.com:surgeventures/provisioning.git
     #  path: fresha/provisioning
+    - url: git@github.com:Nash0x7E2/awesome-flutter-snippets.git
+      path: utils/awesome-flutter-snippets
 
 - name: Fetch Moving Pieces git repos
   git:
