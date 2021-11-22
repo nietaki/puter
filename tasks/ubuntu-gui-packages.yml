@@ -19,6 +19,7 @@
       - flatpak
       - gnome-software-plugin-flatpak
       - xdg-desktop-portal
+      - simplescreenrecorder
 
 - name: Add user to wireshark group
   user:
