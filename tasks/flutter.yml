@@ -57,7 +57,7 @@
       - zip
       - libglu1-mesa
       - libglu1-mesa-dev
-
+      - android-sdk-platform-tools-common
 
 - name: Install flutter from snap
   become: true
