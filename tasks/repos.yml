@@ -57,3 +57,5 @@
       path: archimedes
     - url: git@github.com:nietaki/moving_pieces_web.git
       path: moving_pieces_web
+    - url: git@github.com:MovingPieces/bastono.git
+      path: bastono
