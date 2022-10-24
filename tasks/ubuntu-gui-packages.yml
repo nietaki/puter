@@ -55,7 +55,8 @@
 - name: Install Slack from .deb
   become: true
   apt:
-    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb
+    deb: https://downloads.slack-edge.com/releases/linux/4.28.171/prod/x64/slack-desktop-4.28.171-amd64.deb
+    # deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb
   ignore_errors: yes
 
 # spt is spotify-tui
