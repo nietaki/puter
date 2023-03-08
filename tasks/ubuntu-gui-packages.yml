@@ -1,25 +1,35 @@
-- name: Add Deluge PPA repository
-  apt_repository:
-    repo: ppa:deluge-team/stable
-    update_cache: yes
-    state: absent
-  become: true
+# - name: Add Deluge PPA repository
+#   apt_repository:
+#     repo: ppa:deluge-team/stable
+#     update_cache: yes
+#     state: absent
+#   become: true
 
 - name: Install apt packages
   become: true
   apt:
     state: latest
     name:
-      - deluge # it's deluged deluge-web and deluge-console for headless
+      # for dpkg get selections
+      - debconf-utils
+      # - deluge # it's deluged deluge-web and deluge-console for headless
       - filezilla
       - wxmaxima
       - libreoffice-plasma
       - libreoffice
       - wireshark
       - flatpak
-      - gnome-software-plugin-flatpak
+      # - gnome-software-plugin-flatpak
       - xdg-desktop-portal
       - simplescreenrecorder
+
+- name: Allow wireshark for non-root users
+  become: true
+  ansible.builtin.debconf: 
+    name: wireshark-common 
+    question: wireshark-common/install-setuid
+    value: 'true'
+    vtype: boolean
 
 - name: Add user to wireshark group
   user:
@@ -55,11 +65,11 @@
 - name: Install Slack from .deb
   become: true
   apt:
-    deb: https://downloads.slack-edge.com/releases/linux/4.28.171/prod/x64/slack-desktop-4.28.171-amd64.deb
+    # deb: https://downloads.slack-edge.com/releases/linux/4.28.171/prod/x64/slack-desktop-4.28.171-amd64.deb
     # deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb
+    deb: https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb
   ignore_errors: yes
 
-# spt is spotify-tui
 - name: Install other desktop apps from Snap
   become: true
   snap:
@@ -71,9 +81,9 @@
       # - standard-notes
       # maybe docker?
 
-- name: add spotify gpg key
+- name: add new(?) spotify gpg key
   apt_key:
-    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+    url: https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg
     state: present
   become: true
 

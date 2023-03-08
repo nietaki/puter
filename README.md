@@ -2,6 +2,11 @@
 
 Setting up a computer is annoying, so let's automate it.
 
+## TODO
+- [ ] elliminate ansible deprecation warnings
+- [ ] checking the ubuntu codename instead of setting it in vars
+- [ ] rtx instead of asdf
+- [ ] separate task for ssh keys
 
 ## Usage
 

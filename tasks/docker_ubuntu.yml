@@ -54,6 +54,8 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
   become: true
 
 - name: Ensure group docker exists
@@ -85,14 +87,15 @@
     mode: '0644'
   become: true
 
-- name: download docker-compose into the executable directory
-  get_url:
-    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout }}"
-    dest: /usr/local/bin/docker-compose
-    mode: '0755'
-    owner: root
-    group: root
-  become: true
+# docker compose might be part of the distribution now
+# - name: download docker-compose into the executable directory
+#   get_url:
+#     url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout }}"
+#     dest: /usr/local/bin/docker-compose
+#     mode: '0755'
+#     owner: root
+#     group: root
+#   become: true
 
 - name: Enable docker service (make it start on boot)
   service:

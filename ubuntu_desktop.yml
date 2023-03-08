@@ -11,12 +11,12 @@
     - vars.yml
 
   tasks:
+    - include: tasks/ssh.yml
     - include: tasks/ubuntu-packages.yml
     - include: tasks/security.yml
     - include: tasks/ubuntu-gui-packages.yml
     - include: tasks/docker_ubuntu.yml
     - include: tasks/neovim-ubuntu.yml
-    - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/youtube-dl-ubuntu.yml
     - include: tasks/fix_ubuntu_zsh_snaps.yml
@@ -25,12 +25,15 @@
     # - include: tasks/gcp-sdk.yml
     # - include: tasks/heroku.yml
     # - include: tasks/fpp.yml
-    - include: tasks/asdf.yml
-    - include: tasks/asdf_versions.yml
-    - include: tasks/flutter.yml
+
+## commented out to use rtx instead of asdf
+    # - include: tasks/asdf.yml
+    # - include: tasks/asdf_versions.yml
+
+    # - include: tasks/flutter.yml
     - include: tasks/awscli.yml
     - include: tasks/rustup.yml
-    - include: tasks/aws-vault-ubuntu.yml
+    # - include: tasks/aws-vault-ubuntu.yml
     - include: tasks/coding_helpers.yml
     # - include: tasks/elm.yml
     # - include: tasks/rebar3.yml
