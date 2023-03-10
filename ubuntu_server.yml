@@ -10,6 +10,12 @@
     - vars.yml
 
   tasks:
+    - name: check ubuntu codename
+      command: "lsb_release -cs"
+      register: codename_output
+    - name: save the ubuntu codename for other tasks to use
+      ansible.builtin.set_fact:
+        ubuntu_codename: "{{ codename_output.stdout }}"
     - name: Include all tasks
       include_tasks: "{{ outer_item }}"
       loop_control:
