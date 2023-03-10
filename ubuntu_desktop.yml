@@ -37,10 +37,7 @@
         # - tasks/heroku.yml
         # - tasks/fpp.yml
 
-    ## commented out to use rtx instead of asdf
-        # - tasks/asdf.yml
-        # - tasks/asdf_versions.yml
-
+        - tasks/rtx.yml
         # - tasks/flutter.yml
         - tasks/awscli.yml
         - tasks/rustup.yml

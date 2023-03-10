@@ -194,24 +194,69 @@
 #       # - shellcheck
 
 - name: Install Erlang (asdf) dependency packages
+  become: true
   apt:
+    state: latest
     name:
       - autoconf
+      - automake
       - build-essential
+      - clang
+      - clang-format
+      - clang-tidy
+      - clang-tools
+      - clangd
       - erlang-wx
       - fop
+      - libc++-dev
+      - libc++1
+      - libc++abi-dev
+      - libc++abi1
+      - libclang-dev
+      - libclang1
       - libgl1-mesa-dev
       - libglu1-mesa-dev
-      # - libncurses5-dev
+      - liblldb-dev
+      - libllvm-ocaml-dev
       - libncurses-dev
+      # - libncurses5-dev
+      - libncurses5-dev
+      - libomp-dev
+      - libomp5
       - libpng-dev
       - libssh-dev
-      - m4
-      - unixodbc-dev
-      - xsltproc
       # - libwxgtk3.0-dev
       - libwxgtk3.0-gtk3-dev 
       - libxml2-utils
+      - lld
+      - lldb
+      - llvm
+      - llvm-dev
+      - llvm-runtime
+      - m4
       - openjdk-11-jdk
-    state: latest
+      - python3-clang
+      - unixodbc-dev
+      - xsltproc
+
+- name: Install Ruby (asdf) dependency packages
   become: true
+  apt:
+    state: latest
+    name:
+      - autoconf
+      - bison
+      - patch
+      - build-essential
+      - rustc
+      - libssl-dev
+      - libyaml-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libgmp-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm6
+      - libgdbm-dev
+      - libdb-dev
+      - uuid-dev

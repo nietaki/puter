@@ -1,0 +1,21 @@
+- name: Download rtx executable
+  become: true
+  get_url:
+    url: https://rtx.pub/rtx-latest-linux-x64
+    dest: /usr/local/bin/rtx
+    mode: 0755
+    owner: root
+
+- name: make sure rtx is activated in zsh
+  lineinfile:
+    path: "~/.zshrc"
+    line: 'eval "$(rtx activate zsh)"'
+    regexp: 'rtx activate'
+    create: true
+
+- name: make sure rtx is activated in bash
+  lineinfile:
+    path: "~/.bashrc"
+    line: 'eval "$(rtx activate bash)"'
+    regexp: 'rtx activate'
+    create: true
