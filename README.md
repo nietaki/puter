@@ -3,14 +3,16 @@
 Setting up a computer is annoying, so let's automate it.
 
 ## TODO
+- [x] separate task for ssh keys
 - [ ] elliminate ansible deprecation warnings
 - [ ] checking the ubuntu codename instead of setting it in vars
 - [ ] rtx instead of asdf
-- [ ] separate task for ssh keys
 
 ## Usage
 
 ```sh
+wget -O - https://raw.githubusercontent.com/nietaki/puter/master/bootsrap.sh | bash
+cd ~/repos/puter
 ./puter ubuntu_desktop.yml
 ```
 

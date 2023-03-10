@@ -135,6 +135,7 @@
       - sshuttle
       - silversearcher-ag
       - software-properties-common
+      - shellcheck
       - speedtest-cli
       - spell
       - sqlite3

@@ -31,6 +31,10 @@
     value: 'true'
     vtype: boolean
 
+- name: apply wireshark config
+  become: true
+  command: dpkg-reconfigure -f noninteractive wireshark-common
+
 - name: Add user to wireshark group
   user:
     name: "{{ username }}"
