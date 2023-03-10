@@ -10,18 +10,23 @@
     - vars.yml
 
   tasks:
-    - include: tasks/ubuntu-packages.yml
-    - include: tasks/security.yml
-    - include: tasks/ubuntu-gui-packages.yml
-    - include: tasks/neovim-ubuntu.yml
-    - include: tasks/ssh.yml
-    - include: tasks/zsh.yml
-    - include: tasks/fix_ubuntu_zsh_snaps.yml
-    - include: tasks/dotfiles_readonly.yml
-    - include: tasks/asdf.yml
-    - include: tasks/tmux.yml
-    - include: tasks/plex_server.yml
-    - include: tasks/deluged.yml
+    - name: Include all tasks
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      loop:
+        - tasks/ubuntu-packages.yml
+        - tasks/security.yml
+        - tasks/ubuntu-gui-packages.yml
+        - tasks/neovim-ubuntu.yml
+        - tasks/ssh.yml
+        - tasks/zsh.yml
+        - tasks/fix_ubuntu_zsh_snaps.yml
+        - tasks/dotfiles_readonly.yml
+        - tasks/asdf.yml
+        - tasks/tmux.yml
+        - tasks/plex_server.yml
+        - tasks/deluged.yml
 
   # handlers:
     # - include: handlers/all.yml

@@ -11,39 +11,44 @@
     - vars.yml
 
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/ubuntu-packages.yml
-    - include: tasks/security.yml
-    - include: tasks/ubuntu-gui-packages.yml
-    - include: tasks/docker_ubuntu.yml
-    - include: tasks/neovim-ubuntu.yml
-    - include: tasks/zsh.yml
-    - include: tasks/youtube-dl-ubuntu.yml
-    - include: tasks/fix_ubuntu_zsh_snaps.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/repos.yml
-    # - include: tasks/gcp-sdk.yml
-    # - include: tasks/heroku.yml
-    # - include: tasks/fpp.yml
+    - name: Include all tasks
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      loop:
+        - tasks/ssh.yml
+        - tasks/ubuntu-packages.yml
+        - tasks/security.yml
+        - tasks/ubuntu-gui-packages.yml
+        - tasks/docker_ubuntu.yml
+        - tasks/neovim-ubuntu.yml
+        - tasks/zsh.yml
+        - tasks/youtube-dl-ubuntu.yml
+        - tasks/fix_ubuntu_zsh_snaps.yml
+        - tasks/dotfiles.yml
+        - tasks/repos.yml
+        # - tasks/gcp-sdk.yml
+        # - tasks/heroku.yml
+        # - tasks/fpp.yml
 
-## commented out to use rtx instead of asdf
-    # - include: tasks/asdf.yml
-    # - include: tasks/asdf_versions.yml
+    ## commented out to use rtx instead of asdf
+        # - tasks/asdf.yml
+        # - tasks/asdf_versions.yml
 
-    # - include: tasks/flutter.yml
-    - include: tasks/awscli.yml
-    - include: tasks/rustup.yml
-    # - include: tasks/aws-vault-ubuntu.yml
-    - include: tasks/coding_helpers.yml
-    # - include: tasks/elm.yml
-    # - include: tasks/rebar3.yml
-    # - include: tasks/fish.yml
-    # - include: tasks/stack.yml
-    # - include: tasks/docker.yml
-    # - include: tasks/fzf.yml
-    # - include: tasks/k9s.yml
-    - include: tasks/platformio.yml
-    # - include: tasks/ccls.yml
+        # - tasks/flutter.yml
+        - tasks/awscli.yml
+        - tasks/rustup.yml
+        # - tasks/aws-vault-ubuntu.yml
+        - tasks/coding_helpers.yml
+        # - tasks/elm.yml
+        # - tasks/rebar3.yml
+        # - tasks/fish.yml
+        # - tasks/stack.yml
+        # - tasks/docker.yml
+        # - tasks/fzf.yml
+        # - tasks/k9s.yml
+        - tasks/platformio.yml
+        # - tasks/ccls.yml
 
   # handlers:
-    # - include: handlers/all.yml
+    # - handlers/all.yml

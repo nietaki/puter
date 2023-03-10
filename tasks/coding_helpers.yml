@@ -57,6 +57,7 @@
 # ZSH
 - name: purge the cached zsh completions to regenerate them
   shell: rm -rf ~/.zcompdump*
-  args:
-    warn: false
+  ## this was removed in new ansible
+  # args:
+  #   warn: false
 

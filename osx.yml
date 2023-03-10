@@ -11,19 +11,23 @@
     - vars.yml
 
   tasks:
-    - include: tasks/homebrew-packages.yml
-    - include: tasks/security.yml
-    - include: tasks/neovim-osx.yml
-    - include: tasks/ssh.yml
-    - include: tasks/zsh.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/repos.yml
-    - include: tasks/asdf.yml
-    - include: tasks/asdf_versions.yml
-    - include: tasks/rustup.yml
-    - include: tasks/awscli.yml
-    - include: tasks/coding_helpers.yml
-    # TODO fresha repos
+    - name: Include all tasks
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      loop:
+        - tasks/homebrew-packages.yml
+        - tasks/security.yml
+        - tasks/neovim-osx.yml
+        - tasks/ssh.yml
+        - tasks/zsh.yml
+        - tasks/dotfiles.yml
+        - tasks/repos.yml
+        - tasks/asdf.yml
+        - tasks/asdf_versions.yml
+        - tasks/rustup.yml
+        - tasks/awscli.yml
+        - tasks/coding_helpers.yml
 
   # handlers:
     # - include: handlers/all.yml
