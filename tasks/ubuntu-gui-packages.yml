@@ -12,16 +12,16 @@
     name:
       # for dpkg get selections
       - debconf-utils
-      # - deluge # it's deluged deluge-web and deluge-console for headless
-      - filezilla
-      - wxmaxima
-      - libreoffice-plasma
-      - libreoffice
-      - wireshark
-      - flatpak
       # - gnome-software-plugin-flatpak
-      - xdg-desktop-portal
+      - filezilla
+      - firefox
+      - flatpak
+      - libreoffice
+      - libreoffice-plasma
       - simplescreenrecorder
+      - wireshark
+      - wxmaxima
+      - xdg-desktop-portal
 
 - name: Allow wireshark for non-root users
   become: true
@@ -126,3 +126,17 @@
     name: org.telegram.desktop
     state: present
 
+# https://askubuntu.com/questions/1418203/netflix-on-firefox-the-widevinecdm-plugin-has-crashed/1425488#1425488
+- name: fix firefox drm
+  lineinfile:
+    path: "/etc/apparmor.d/usr.bin.firefox"
+    insertafter: "per-user"
+    line: '  owner @{HOME}/.{firefox,mozilla}/**/gmp-widevinecdm/*/lib*so m,'
+    regexp: 'gmp-widevinecdm'
+    create: no
+  become: true
+
+- name: reload apparmor rules
+  become: true
+  command: "apparmor_parser --replace /etc/apparmor.d/usr.bin.firefox"
+  ignore_errors: yes

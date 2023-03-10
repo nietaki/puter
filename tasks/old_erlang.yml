@@ -20,7 +20,7 @@
     chdir: /usr/local/src/openssl-1.1.1m
     creates: /usr/local/ssl/lib/libssl.so.1.1
 
-- name: "install erlang {{ item }}"
+- name: "install older erlang versions with custom libssl 1.1"
   command: "rtx install erlang {{ item }}"
   environment:
     KERL_CONFIGURE_OPTIONS: "-with-ssl=/usr/local/ssl"
