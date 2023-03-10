@@ -11,7 +11,7 @@ Setting up a computer is annoying, so let's automate it.
 ## Usage
 
 ```sh
-wget -O - https://raw.githubusercontent.com/nietaki/puter/master/bootsrap.sh | bash
+wget -O - https://raw.githubusercontent.com/nietaki/puter/master/bootstrap.sh | bash
 cd ~/repos/puter
 ./puter ubuntu_desktop.yml
 ```
