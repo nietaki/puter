@@ -1,0 +1,32 @@
+# We want to install openssl 11 so that older versions of erlang compile
+
+- name: fetch openssl 1.1.1 latest
+  become: true
+  git:
+    repo: https://github.com/openssl/openssl.git
+    dest: /usr/local/src/openssl-1.1.1m
+    version: OpenSSL_1_1_1-stable
+
+- name: configure openssl for configuration
+  become: true
+  shell: ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+  args:
+    chdir: /usr/local/src/openssl-1.1.1m
+
+- name: make
+  shell: make && make test && make install_sw
+  become: true
+  args:
+    chdir: /usr/local/src/openssl-1.1.1m
+    creates: /usr/local/ssl/lib/libssl.so.1.1
+
+- name: "install erlang {{ item }}"
+  command: "rtx install erlang {{ item }}"
+  environment:
+    KERL_CONFIGURE_OPTIONS: "-with-ssl=/usr/local/ssl"
+    ERLANG_OPENSSL_PATH: "/usr/local/ssl"
+  ignore_errors: yes
+  with_items:
+    - 21
+    - 22
+    - 23
