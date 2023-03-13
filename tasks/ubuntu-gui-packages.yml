@@ -140,3 +140,16 @@
   become: true
   command: "apparmor_parser --replace /etc/apparmor.d/usr.bin.firefox"
   ignore_errors: yes
+
+- name: add the universe repository for pcloud prerequisites
+  apt_repository:
+    repo: universe
+    state: present
+  become: true
+
+- name: Install pcloud prerequisites
+  become: true
+  pt:
+    state: latest
+    name:
+      - libfuse2

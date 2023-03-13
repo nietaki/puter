@@ -26,6 +26,10 @@ Well it doesn't set everything up in one go, the script needs
 to be re-run a couple of times and you need to add the generated ssh key to github
 in order for some git clones to succeed.
 
+Also:
+
+- pCloud
+
 ### SSH agent
 It doesn't add the ssh key to the ssh-agent. You need to run:
 
