@@ -149,7 +149,7 @@
 
 - name: Install pcloud prerequisites
   become: true
-  pt:
+  apt:
     state: latest
     name:
       - libfuse2

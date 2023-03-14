@@ -31,11 +31,13 @@ Also:
 - pCloud
 
 ### SSH agent
+
 It doesn't add the ssh key to the ssh-agent. You need to run:
 
 ```sh
 ssh-add
 ```
+
 and enter the ssh passphrase to add it to ssh-agent
 
 You'll need to add the public key (displayed during putering)
@@ -53,6 +55,7 @@ machine afterwards anyways.
 ### setting up duckdns
 
 ## TODO
+
 - [x] separate task for ssh keys
 - [x] elliminate ansible deprecation warnings
 - [x] checking the ubuntu codename instead of setting it in vars
