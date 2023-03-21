@@ -15,6 +15,10 @@
     update: false
   with_items:
     # projects
+    - url: git@github.com:nietaki/nietaki.git
+      path: nietaki
+    - url: git@github.com:nietaki/markdown-resume.git
+      path: markdown-resume
     - url: git@github.com:nietaki/hokime.git
       path: hokime
     - url: git@github.com:nietaki/rexbug.git

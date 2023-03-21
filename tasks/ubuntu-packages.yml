@@ -158,6 +158,7 @@
       - zeal
       - zsh
 
+
 - name: RipGrep from .deb
   become: true
   apt:
@@ -241,6 +242,7 @@
       - unixodbc-dev
       - xsltproc
 
+
 - name: Install Ruby (asdf) dependency packages
   become: true
   apt:
@@ -262,3 +264,15 @@
       - libgdbm-dev
       - libdb-dev
       - uuid-dev
+
+- name: Install pandoc/latex and deps
+  become: true
+  apt:
+    state: latest
+    name:
+      - pandoc
+      - texlive-latex-base
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-latex-extra
+      - wkhtmltopdf
