@@ -50,6 +50,12 @@
     - url: git@github.com:Nash0x7E2/awesome-flutter-snippets.git
       path: utils/awesome-flutter-snippets
 
+- name: add private markdown-resume remote
+  command: git remote add private git@github.com:nietaki/resume.git
+  args:
+    chdir: ~/repos/markdown-resume
+  ignore_errors: yes
+
 - name: Fetch Moving Pieces git repos
   git:
     repo: "{{ item['url'] }}"
