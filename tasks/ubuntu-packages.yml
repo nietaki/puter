@@ -81,6 +81,7 @@
       - direnv
       - dnsutils
       - espeak
+      - fd-find
       - flac
       - flactag
       - fop
