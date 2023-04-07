@@ -4,8 +4,9 @@ Setting up a computer is annoying, so let's automate it.
 
 ## Usage
 
+<!-- https://unix.stackexchange.com/a/180386/6469 -->
 ```sh
-wget -O - https://raw.githubusercontent.com/nietaki/puter/master/bootstrap.sh | bash
+bash -c "$(wget -O - https://raw.githubusercontent.com/nietaki/puter/master/bootstrap.sh)"
 cd ~/repos/puter
 ./puter ubuntu_desktop.yml
 ```
