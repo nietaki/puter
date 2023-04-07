@@ -143,6 +143,7 @@
     regexp: 'gmp-widevinecdm'
     create: no
   become: true
+  ignore_errors: yes
 
 - name: reload apparmor rules
   become: true
