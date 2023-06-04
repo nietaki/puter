@@ -1,0 +1,29 @@
+- name: Add Signal signing key
+  apt_key:
+    url: https://updates.signal.org/desktop/apt/keys.asc
+    state: present
+  become: true
+
+- name: add the signal source list file
+  file:
+    path: "/etc/apt/sources.list.d/signal-xenial.list"
+    state: touch
+    owner: root
+    group: root
+  become: true
+
+- name: add the signal source list entry
+  lineinfile:
+    path: "/etc/apt/sources.list.d/pgdg.list"
+    line: 'deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main'
+    regexp: 'signal'
+    create: no
+  become: true
+
+- name: Install Signal
+  become: true
+  apt:
+    update_cache: true
+    state: latest
+    name:
+      - signal-desktop

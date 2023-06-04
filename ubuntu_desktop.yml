@@ -23,8 +23,9 @@
         loop_var: outer_item
       loop:
         - tasks/ssh.yml
-        - tasks/ubuntu-packages.yml
-        - tasks/security.yml
+        # - tasks/ubuntu-packages.yml
+        # - tasks/security.yml
+        - tasks/signal.yml
         - tasks/ubuntu-gui-packages.yml
         - tasks/docker_ubuntu.yml
         - tasks/neovim-ubuntu.yml
