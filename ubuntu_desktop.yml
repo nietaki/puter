@@ -52,6 +52,7 @@
         # - tasks/fzf.yml
         # - tasks/k9s.yml
         - tasks/platformio.yml
+        - tasks/zoom.yml
         - tasks/signal.yml
         # - tasks/ccls.yml
 
