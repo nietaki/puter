@@ -40,7 +40,8 @@ elif [[ "$unamestr" == "Darwin" ]]; then
   command -v brew >/dev/null 2>&1 || {
     echo Homebrew is not installed.
     echo running the installer...
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   }
 
   # TODO maybe move brew doctor AFTER the playbook has been run and the dotfiles have been installed

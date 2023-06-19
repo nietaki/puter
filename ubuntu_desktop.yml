@@ -22,6 +22,8 @@
       loop_control:
         loop_var: outer_item
       loop:
+        - tasks/ngrok.yml
+
         - tasks/ssh.yml
         - tasks/ubuntu-packages.yml
         - tasks/security.yml
@@ -37,7 +39,7 @@
         # - tasks/heroku.yml
         # - tasks/fpp.yml
 
-        - tasks/rtx.yml
+        - tasks/rtx-ubuntu.yml
         - tasks/old_erlang.yml
         # - tasks/flutter.yml
         - tasks/awscli.yml

@@ -19,15 +19,17 @@
         - tasks/homebrew-packages.yml
         - tasks/security.yml
         - tasks/neovim-osx.yml
-        - tasks/ssh.yml
         - tasks/zsh.yml
         - tasks/dotfiles.yml
         - tasks/repos.yml
-        - tasks/asdf.yml
-        - tasks/asdf_versions.yml
-        - tasks/rustup.yml
+        # - tasks/asdf.yml
+        - tasks/rtx-osx.yml
+        # - tasks/asdf_versions.yml
+        # - tasks/rustup.yml
         - tasks/awscli.yml
         - tasks/coding_helpers.yml
+        - tasks/postgres-app-osx.yml
+        - tasks/docker_osx.yml
 
   # handlers:
     # - include: handlers/all.yml

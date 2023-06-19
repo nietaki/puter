@@ -1,0 +1,5 @@
+- name: Download postgresApp dmg
+  get_url:
+    url: https://github.com/PostgresApp/PostgresApp/releases/download/v2.6.2/Postgres-2.6.2-15.dmg
+    dest: ~/Downloads/
+    mode: 0700

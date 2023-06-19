@@ -1,9 +1,3 @@
-- name: Download Docker dmg 
-  get_url:
-    url: https://download.docker.com/mac/stable/Docker.dmg
-    dest: ~/Downloads/Docker.dmg
-    mode: 0700
-
 - name: Uninstall brew awscli
   homebrew:
     upgrade_all: no
@@ -54,7 +48,7 @@
       - pygobject3
       - ruby
       - ssh-copy-id
-      - the_silver_searcher 
+      - the_silver_searcher
       - tintin
       - tmux
       - tree
@@ -69,6 +63,7 @@
       - shellcheck
       - sshuttle
       - bash
+      - ngrok/ngrok/ngrok
 
 - name: Install brew cask apps
   homebrew_cask:
@@ -96,7 +91,6 @@
       - karabiner-elements
       - kindle
       - libreoffice
-      - ngrok
       - postman
       - slack
       - sourcetree
@@ -112,3 +106,5 @@
       - visual-studio-code
       - vlc
       - whatsapp
+      - rectangle
+      - zoom

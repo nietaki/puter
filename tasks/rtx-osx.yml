@@ -1,3 +1,14 @@
+- name: Install erlang prereqs
+  homebrew:
+    upgrade_all: no
+    state: present
+    name: 
+      - autoconf
+      - openssl@1.1
+      - wxwidgets
+      - libxslt
+      - fop
+
 - name: Download rtx executable
   become: true
   get_url:

@@ -1,0 +1,17 @@
+- name: Download Docker dmg 
+  get_url:
+    url: https://desktop.docker.com/mac/main/arm64/Docker.dmg
+    dest: ~/Downloads/Docker.dmg
+    mode: 0700
+
+- name: attach the docker volume for install
+  shell: hdiutil attach ~/Downloads/Docker.dmg
+  become: true
+
+- name: install Docker from cli
+  shell: /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
+  become: true
+
+- name: detach the docker volume after install
+  shell: hdiutil detach /Volumes/Docker
+  become: true

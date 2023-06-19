@@ -69,3 +69,15 @@
       path: moving_pieces_web
     - url: git@github.com:MovingPieces/bastono.git
       path: bastono
+
+- name: Grain git repos
+  git:
+    repo: "{{ item['url'] }}"
+    dest: "~/repos/grain/{{ item['path'] }}"
+    update: false
+  with_items:
+    # projects
+    - url: git@github.com:grain-team/next.git
+      path: next
+    - url: git@github.com:grain-team/tractor.git
+      path: tractor

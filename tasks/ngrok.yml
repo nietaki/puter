@@ -1,0 +1,6 @@
+- name: Install ngrok
+  unarchive:
+    src: https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+    dest: ~/bin
+    remote_src: yes
+    creates: /home/{{ username }}/bin/ngrok
