@@ -1,3 +1,9 @@
+- name: create ~/bin directory for future use
+  file:
+    path: ~/bin
+    state: directory
+    mode: '0750'
+
 - name: Install erlang prereqs
   homebrew:
     upgrade_all: no
@@ -10,12 +16,10 @@
       - fop
 
 - name: Download rtx executable
-  become: true
   get_url:
-    url: https://rtx.pub/rtx-latest-linux-x64
-    dest: /usr/local/bin/rtx
-    mode: 0755
-    owner: root
+    url: https://rtx.pub/rtx-latest-macos-arm64
+    dest: ~/bin/rtx
+    mode: 0750
 
 - name: make sure rtx is activated in zsh
   lineinfile:

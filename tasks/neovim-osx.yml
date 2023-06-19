@@ -1,3 +1,11 @@
+- name: install some deps 
+  homebrew:
+    # update_homebrew: yes
+    upgrade_all: no
+    state: present # linked
+    name: 
+      - ripgrep 
+
 - name: Create Neovim dirs
   file:
     path: "{{ item }}"

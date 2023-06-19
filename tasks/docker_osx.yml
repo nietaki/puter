@@ -4,9 +4,12 @@
     dest: ~/Downloads/Docker.dmg
     mode: 0700
 
+- name: detach the docker just in case it's there
+  shell: hdiutil detach /Volumes/Docker
+  ignore_errors: yes
+
 - name: attach the docker volume for install
   shell: hdiutil attach ~/Downloads/Docker.dmg
-  become: true
 
 - name: install Docker from cli
   shell: /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
@@ -14,4 +17,4 @@
 
 - name: detach the docker volume after install
   shell: hdiutil detach /Volumes/Docker
-  become: true
+  ignore_errors: yes

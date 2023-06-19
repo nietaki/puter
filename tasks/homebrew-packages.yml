@@ -1,3 +1,8 @@
+# needs interactive terminal, move to puter
+#- name: install rosetta stone
+#  shell: softwareupdate --install-rosetta
+#  become: true
+
 - name: Uninstall brew awscli
   homebrew:
     upgrade_all: no
@@ -57,13 +62,12 @@
       - unzip
       - vim
       - wget
-      - wxmac
+      # - wxmac
       - youtube-dl
       - zsh
       - shellcheck
       - sshuttle
       - bash
-      - ngrok/ngrok/ngrok
 
 - name: Install brew cask apps
   homebrew_cask:

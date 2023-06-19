@@ -37,6 +37,8 @@ elif [[ "$unamestr" == "Darwin" ]]; then
     sudo xcode-select --install
   }
 
+  # sudo softwareupdate --install-rosetta
+
   command -v brew >/dev/null 2>&1 || {
     echo Homebrew is not installed.
     echo running the installer...
