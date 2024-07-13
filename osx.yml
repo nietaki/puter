@@ -12,7 +12,7 @@
       loop_control:
         loop_var: outer_item
       loop:
-        # - tasks/homebrew-packages.yml
+        - tasks/homebrew-packages.yml
         - tasks/security.yml
         - tasks/neovim-osx.yml
         - tasks/zsh.yml

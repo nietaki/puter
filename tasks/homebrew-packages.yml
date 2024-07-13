@@ -47,9 +47,16 @@
       - llvm
       - midnight-commander
       - ncdu
+      - nginx
+      - nmap
       - openjpeg
       - openssl
       - pt
+      - psql
+      - qmk/qmk/qmk
+      - lua51
+      - libpq
+      - telnet
       - pygobject3
       - ruby
       - ssh-copy-id
@@ -61,6 +68,7 @@
       - unixodbc
       - unzip
       - vim
+      - watch
       - wget
       # - wxmac
       - youtube-dl
@@ -83,6 +91,7 @@
       - adoptopenjdk
       - bettertouchtool
       - brave-browser
+      - calibre
       - dash
       - datagrip
       - deluge
