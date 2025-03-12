@@ -1,0 +1,56 @@
+---
+# Run this playbook on the local machine.
+- hosts: 127.0.0.1
+  connection: local
+
+  vars_prompt: 
+    name: ssh_passphrase
+    prompt: "Enter ssh passphrase. It will get used if an ssh key needs to be generated"
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Include all tasks
+      include_tasks: "{{ outer_item }}"
+      loop_control:
+        loop_var: outer_item
+      loop:
+        - tasks/fedora-packages.yml
+        - tasks/ngrok.yml
+        - tasks/ssh.yml
+        # - tasks/ubuntu-packages.yml
+        # - tasks/security.yml
+        # - tasks/ubuntu-gui-packages.yml
+        # - tasks/docker_ubuntu.yml
+        # - tasks/neovim-ubuntu.yml
+        - tasks/zsh.yml
+        # - tasks/youtube-dl-ubuntu.yml
+        # - tasks/fix_ubuntu_zsh_snaps.yml
+        # - tasks/dotfiles.yml
+        # - tasks/repos.yml
+        # # - tasks/gcp-sdk.yml
+        # # - tasks/heroku.yml
+        # # - tasks/fpp.yml
+
+        - tasks/mise-fedora.yml
+        # - tasks/old_erlang.yml
+        # # - tasks/flutter.yml
+        # - tasks/awscli.yml
+        # - tasks/rustup.yml
+        # # - tasks/aws-vault-ubuntu.yml
+        # - tasks/coding_helpers.yml
+        # # - tasks/elm.yml
+        # # - tasks/rebar3.yml
+        # # - tasks/fish.yml
+        # # - tasks/stack.yml
+        # # - tasks/docker.yml
+        # # - tasks/fzf.yml
+        # # - tasks/k9s.yml
+        # - tasks/platformio.yml
+        # - tasks/zoom.yml
+        # - tasks/signal.yml
+        # # - tasks/ccls.yml
+
+  # # handlers:
+    # # - handlers/all.yml

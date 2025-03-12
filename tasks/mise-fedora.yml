@@ -1,0 +1,40 @@
+# sudo dnf install -y dnf-plugins-core
+# sudo dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo
+# sudo dnf install -y mise
+
+- name: Install dnf-plugins-core
+  become: true
+  dnf:
+    state: latest
+    name:
+      - dnf-plugins-core
+
+- name: add repofile
+  become: true
+  command: dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo
+  args:
+    creates: /etc/yum.repos.d/mise.repo
+
+- name: install mise
+  become: true
+  dnf:
+    enablerepo:
+      - "https://mise.jdx.dev/rpm/mise.repo"
+    state: latest
+    name:
+      - mise
+
+
+- name: make sure mise is activated in zsh
+  lineinfile:
+    path: "~/.zshrc"
+    line: 'eval "$(mise activate zsh)"'
+    regexp: 'mise activate'
+    create: true
+
+- name: make sure mise is activated in bash
+  lineinfile:
+    path: "~/.bashrc"
+    line: 'eval "$(mise activate bash)"'
+    regexp: 'mise activate'
+    create: true

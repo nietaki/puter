@@ -9,7 +9,17 @@ unset ANSIBLE_VAULT_PASSWORD_FILE
 
 unamestr=$(uname)
 
-if [[ "$unamestr" == 'Linux' ]]; then
+if test -f /etc/fedora-release; then
+  echo "fedora"
+  command -v python3 >/dev/null 2>&1 || {
+    sudo dnf -y install python3
+  }
+
+  command -v ansible-playbook >/dev/null 2>&1 || {
+    echo Ansible is not installed.
+    sudo apt -y install ansible
+  }
+elif [[ "$unamestr" == 'Linux' ]]; then
   echo "## Ubuntu"
   command -v python3 >/dev/null 2>&1 || {
     sudo apt -y install python3
@@ -60,7 +70,7 @@ elif [[ "$unamestr" == "Darwin" ]]; then
   brew link --overwrite ansible
   # todo echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 else
-  echo "Unrecognised OS (puter supports only OSX and Ubuntu)"
+  echo "Unrecognised OS (puter supports only OSX, Ubuntu, and Fedora)"
   exit 1
 fi
 
