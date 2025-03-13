@@ -27,7 +27,7 @@
         - tasks/zsh.yml
         # - tasks/youtube-dl-ubuntu.yml
         # - tasks/fix_ubuntu_zsh_snaps.yml
-        # - tasks/dotfiles.yml
+        - tasks/dotfiles.yml
         # - tasks/repos.yml
         # # - tasks/gcp-sdk.yml
         # # - tasks/heroku.yml

@@ -10,6 +10,8 @@
   dnf:
     state: latest
     name:
+      - source-foundry-hack-fonts
+      - gnome-font-viewer
       # - emacs
       - ack
       - aspell
