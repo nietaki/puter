@@ -10,6 +10,7 @@
   dnf:
     state: latest
     name:
+      - btop
       - source-foundry-hack-fonts
       - gnome-font-viewer
       # - emacs
@@ -40,6 +41,7 @@
       - espeak
       - fd-find
       - flac
+      - flatpak
       # - flactag
       - fop
       - fortune

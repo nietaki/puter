@@ -1,0 +1,6 @@
+- name: Apply security updates
+  become: true
+  dnf:
+    state: latest
+    security: true
+    name: "*"

@@ -56,19 +56,19 @@
     chdir: ~/repos/markdown-resume
   ignore_errors: yes
 
-- name: Fetch Moving Pieces git repos
-  git:
-    repo: "{{ item['url'] }}"
-    dest: "~/repos/moving_pieces/{{ item['path'] }}"
-    update: false
-  with_items:
-    # projects
-    - url: git@github.com:nietaki/archimedes.git
-      path: archimedes
-    - url: git@github.com:nietaki/moving_pieces_web.git
-      path: moving_pieces_web
-    - url: git@github.com:MovingPieces/bastono.git
-      path: bastono
+# - name: Fetch Moving Pieces git repos
+#   git:
+#     repo: "{{ item['url'] }}"
+#     dest: "~/repos/moving_pieces/{{ item['path'] }}"
+#     update: false
+#   with_items:
+#     # projects
+#     - url: git@github.com:nietaki/archimedes.git
+#       path: archimedes
+#     - url: git@github.com:nietaki/moving_pieces_web.git
+#       path: moving_pieces_web
+#     - url: git@github.com:MovingPieces/bastono.git
+#       path: bastono
 
 - name: Grain git repos
   git:

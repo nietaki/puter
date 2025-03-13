@@ -1,0 +1,11 @@
+- name: Import slack pgp key 
+  become: true
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://slack.com/gpg/slack_pubkey_20240822.gpg
+
+- name: Install slack from a hardcoded rpm url
+  become: true
+  ansible.builtin.dnf:
+    name: 'https://downloads.slack-edge.com/desktop-releases/linux/x64/4.41.105/slack-4.41.105-0.1.el8.x86_64.rpm'
+    state: present

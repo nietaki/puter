@@ -1,0 +1,26 @@
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: user
+
+- name: Install Spotify
+  community.general.flatpak:
+    method: user
+    name:
+      - com.spotify.Client
+
+- name: Install Discord
+  community.general.flatpak:
+    method: user
+    name:
+      - com.discordapp.Discord
+
+- name: Install other flatpaks
+  community.general.flatpak:
+    method: user
+    name:
+      - org.gimp.GIMP
+      - org.inkscape.Inkscape
+      - com.rtosta.zapzap

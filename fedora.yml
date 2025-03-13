@@ -16,11 +16,12 @@
       loop_control:
         loop_var: outer_item
       loop:
+        - tasks/fedora-update.yml
         - tasks/fedora-packages.yml
         - tasks/ngrok.yml
         - tasks/ssh.yml
         # - tasks/ubuntu-packages.yml
-        # - tasks/security.yml
+        - tasks/security.yml
         # - tasks/ubuntu-gui-packages.yml
         # - tasks/docker_ubuntu.yml
         # - tasks/neovim-ubuntu.yml
@@ -28,12 +29,15 @@
         # - tasks/youtube-dl-ubuntu.yml
         # - tasks/fix_ubuntu_zsh_snaps.yml
         - tasks/dotfiles.yml
-        # - tasks/repos.yml
+        - tasks/repos.yml
+        - tasks/flatpak-packages.yml
         # # - tasks/gcp-sdk.yml
         # # - tasks/heroku.yml
         # # - tasks/fpp.yml
 
         - tasks/mise-fedora.yml
+        - tasks/fedora-slack.yml
+        - tasks/fedora-librewolf.yml
         # - tasks/old_erlang.yml
         # # - tasks/flutter.yml
         # - tasks/awscli.yml

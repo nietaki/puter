@@ -1,0 +1,15 @@
+- name: add librewolf repofile
+  become: true
+  command: dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
+  args:
+    creates: /etc/yum.repos.d/librewolf.repo
+
+
+- name: install librewolf from repo
+  become: true
+  dnf:
+    enablerepo:
+      - "https://repo.librewolf.net/librewolf.repo"
+    state: latest
+    name:
+      - librewolf
