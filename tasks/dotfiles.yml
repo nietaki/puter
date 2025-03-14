@@ -8,8 +8,11 @@
   args:
     creates: ~/.homesick/repos/dotfiles
 
-- name: Update homeshick castles
-  command: ~/.homesick/repos/homeshick/bin/homeshick pull
+# - name: Update homeshick castles
+#   command: ~/.homesick/repos/homeshick/bin/homeshick pull
+
+- name: Refresh homeshick castles
+  command: ~/.homesick/repos/homeshick/bin/homeshick refresh
 
 - name: Link homeshick castles
   command: ~/.homesick/repos/homeshick/bin/homeshick --force link

@@ -1,0 +1,17 @@
+- name: Download the login screen background file
+  become: true
+  get_url:
+    owner: root
+    group: root
+    url: https://github.com/nietaki/dotfiles/blob/master/home/wallpapers/tiling/black_cubes/iStock-1135731575_XXL.png?raw=true
+    dest: /usr/share/backgrounds/cubes.png
+    mode: 0755
+
+- name: set the background in /etc/lightdm/lightdm-gtk-greeter.conf
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/lightdm/lightdm-gtk-greeter.conf
+    state: present
+    regexp: '^background='
+    line: 'background=/usr/share/backgrounds/cubes.png'
+    # validate: /usr/sbin/visudo -cf %s

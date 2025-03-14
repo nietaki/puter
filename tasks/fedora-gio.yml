@@ -1,0 +1,16 @@
+- name: install gio deps
+  become: true
+  dnf:
+    state: latest
+    name:
+      - gcc
+      - pkg-config
+      - wayland-devel
+      - libX11-devel
+      - libxkbcommon-x11-devel
+      - mesa-libGLES-devel
+      - mesa-libEGL-devel
+      - libXcursor-devel
+      - vulkan-headers
+
+# $ go run gioui.org/example/hello@latest

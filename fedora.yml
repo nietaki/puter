@@ -38,6 +38,8 @@
         - tasks/mise-fedora.yml
         - tasks/fedora-slack.yml
         - tasks/fedora-librewolf.yml
+        - tasks/fedora-login-screen.yml
+        - tasks/fedora-gio.yml
         # - tasks/old_erlang.yml
         # # - tasks/flutter.yml
         # - tasks/awscli.yml

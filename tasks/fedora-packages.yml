@@ -10,6 +10,7 @@
   dnf:
     state: latest
     name:
+      - chromium
       - btop
       - source-foundry-hack-fonts
       - gnome-font-viewer
