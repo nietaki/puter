@@ -35,6 +35,7 @@
         # # - tasks/heroku.yml
         # # - tasks/fpp.yml
 
+        - tasks/fedora-rpmfusion.yml
         - tasks/mise-fedora.yml
         - tasks/fedora-slack.yml
         - tasks/fedora-librewolf.yml
