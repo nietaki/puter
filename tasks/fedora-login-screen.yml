@@ -5,6 +5,7 @@
     group: root
     url: https://github.com/nietaki/dotfiles/blob/master/home/wallpapers/tiling/black_cubes/iStock-1135731575_XXL.png?raw=true
     dest: /usr/share/backgrounds/cubes.png
+    force: false
     mode: 0755
 
 - name: set the background in /etc/lightdm/lightdm-gtk-greeter.conf

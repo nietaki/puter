@@ -132,6 +132,7 @@
       - xsel
       - xsltproc
       # - xz-utils
+      - xdotool
       - xz
       - xz-devel
       - xz-libs

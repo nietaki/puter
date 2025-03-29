@@ -11,5 +11,6 @@
     enablerepo:
       - "https://repo.librewolf.net/librewolf.repo"
     state: latest
+    security: true
     name:
       - librewolf
