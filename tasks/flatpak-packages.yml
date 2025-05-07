@@ -24,3 +24,4 @@
       - org.gimp.GIMP
       - org.inkscape.Inkscape
       - com.rtosta.zapzap
+      - com.signal.Signal

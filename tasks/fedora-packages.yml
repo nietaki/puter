@@ -47,6 +47,7 @@
       - fop
       - fortune
       - fuse
+      - fuse-devel
       - gcc
       - g++
       # - gespeaker
